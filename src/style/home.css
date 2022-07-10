@@ -1,0 +1,19 @@
+.home {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.home .container {
+    text-align: center;
+}
+
+.home .level {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.home .category {
+    display: flex;
+    margin-bottom: 20px;
+}
