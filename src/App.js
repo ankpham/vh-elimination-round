@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef} from 'react';
 import {Routes, BrowserRouter as Router, Route} 
 from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import './style/style.css'
 
 import Home from './pages/Home';
 import ViewQuestion from './pages/ViewQuestion';
+import AdminLogin from './pages/AdminLogin';
 import Admin from './pages/Admin';
 
 const App = () => {   
@@ -23,12 +24,13 @@ const App = () => {
   }
 
   return (
-    <div ref={page} class="app">
+    <div ref={page} className="app">
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} exact/>
         <Route path="/view-question/:level/:category" element={<ViewQuestion/>}/>
-        <Route path="/admin" element={<Admin/>}/>
+        <Route path="/admin-login" element={<AdminLogin/>}/>
+        <Route path="/admin/2iu80qpo0w23/" element={<Admin/>}/>
       </Routes>
     </Router>
     <button ref={fullScreenButton} style={{right: '0', display: 'flex', position: 'absolute'}} onClick={() => fullscreen()}>Full Screen</button>

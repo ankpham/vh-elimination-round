@@ -53,7 +53,7 @@ const Home = () => {
         <>
         <div className="home">
             <div className="container">
-                <h1>Selection</h1>
+                <h1 className='heading'>Selection</h1>
                 <div ref={levelContainer} className="level">
                     <span className="select" onClick={() => setActive("level", 1)}>Level 1</span>
                     <span className="select" onClick={() => setActive("level", 2)}>Level 2</span>
@@ -66,7 +66,7 @@ const Home = () => {
                 </div>
                 <Link className="link" to={"/view-question/" + level + "/" + category}>View Question</Link>
             </div>
-            <Link className="link admin" to="/admin">Admin</Link> 
+            <Link className="link admin" to="/admin-login">Admin</Link> 
         </div>
         </>
     )

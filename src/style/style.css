@@ -3,12 +3,19 @@
 @import url('admin.css');
 
 .container {
+    text-align: center;
     height: 80vh;
     border: black solid 1px;
     width: 90%;
     margin: auto;
     margin-top: 8vh;
     padding: 5px;
+}
+
+.heading {
+    margin-top: 50px;
+    font-size: 45px;
+    font-weight: 400;
 }
 
 .link {
@@ -47,13 +54,41 @@
 }
 
 .link.back-to-selection {
-    float: right;
+    position: absolute;
     margin: 10px;
 }
 
 .link.admin {
+    height: 20px;
     position: absolute;
     bottom: 0;
     padding: 5px;
     width: 100px;
+}
+
+.form-row {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+}
+
+input {
+    margin: auto;
+}
+
+.input-text {
+    margin: auto;
+    width: 150px;
+    height: 25px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+.input-question {
+    width: 80%;
+    height: 100px;
+}
+
+.submit {
+    margin: auto;
 }

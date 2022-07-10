@@ -10,7 +10,7 @@ const ViewQuestion = () => {
         <div className='view-question'> 
             <div className='container'>
                 <Link className="link back-to-selection" to="/">Back To Selection</Link> 
-                <h1>Question</h1>
+                <h1 className='heading'>Question</h1>
                 <h5>Level {level}</h5>
                 <h5>Category {category}</h5>
             </div>

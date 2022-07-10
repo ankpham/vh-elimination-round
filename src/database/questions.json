@@ -1,5 +1,43 @@
 {
-    "1": {
-        
+    "level": {
+        "1": {
+            "category": {
+                "1": {
+                    "question": ""
+                },
+                "2": {
+                    "question": ""
+                },
+                "3": {
+                    "question": ""
+                }
+            }
+        },
+        "2": {
+            "category": {
+                "1": {
+                    "question": ""
+                },
+                "2": {
+                    "question": ""
+                },
+                "3": {
+                    "question": ""
+                }
+            }
+        },
+        "3": {
+            "category": {
+                "1": {
+                    "question": ""
+                },
+                "2": {
+                    "question": ""
+                },
+                "3": {
+                    "question": ""
+                }
+            }
+        }
     }
 }
