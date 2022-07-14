@@ -4,8 +4,19 @@
     width: 100%;
 }
 
+.admin-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .add-question {
     width: 50%;
     height: 60vh;
     border-right: black solid 1px;
+}
+
+.question-list {
+    width: 50%;
+    height: 60vh;
+    overflow: scroll;
 }

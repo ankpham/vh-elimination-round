@@ -55,9 +55,10 @@ const Home = () => {
             <div className="container">
                 <h1 className='heading'>Selection</h1>
                 <div ref={levelContainer} className="level">
-                    <span className="select" onClick={() => setActive("level", 1)}>Level 1</span>
-                    <span className="select" onClick={() => setActive("level", 2)}>Level 2</span>
-                    <span className="select" onClick={() => setActive("level", 3)}>Level 3</span>
+                    <span className="select" onClick={() => setActive("level", 0)}>Grade MG</span>
+                    <span className="select" onClick={() => setActive("level", 1)}>Grade 1</span>
+                    <span className="select" onClick={() => setActive("level", 2)}>Grade 2</span>
+                    <span className="select" onClick={() => setActive("level", 3)}>Grade 3</span>
                 </div>
                 <div ref={categoryContainer} className="category">
                     <span className="select" onClick={() => setActive("category", 1)}>Category 1</span>

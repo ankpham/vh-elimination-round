@@ -1,43 +1,48 @@
-{
-    "level": {
-        "1": {
-            "category": {
-                "1": {
-                    "question": ""
-                },
-                "2": {
-                    "question": ""
-                },
-                "3": {
-                    "question": ""
-                }
-            }
-        },
-        "2": {
-            "category": {
-                "1": {
-                    "question": ""
-                },
-                "2": {
-                    "question": ""
-                },
-                "3": {
-                    "question": ""
-                }
-            }
-        },
-        "3": {
-            "category": {
-                "1": {
-                    "question": ""
-                },
-                "2": {
-                    "question": ""
-                },
-                "3": {
-                    "question": ""
-                }
-            }
-        }
+[
+    {
+        "id": 1,
+        "dateCreated": null,
+        "dateLastUpdated": null,
+        "type": "mc",
+        "category": 1,
+        "grade": 0,
+        "level": 0,
+        "question": "This is a question",
+        "correctChoice": "This is the correct choice",
+        "otherChoices": [
+                "This is an answer choice",
+                "This is an answer choice"
+        ]
+    },
+    {
+        "id": 2,
+        "dateCreated": null,
+        "dateLastUpdated": null,
+        "type": "mc",
+        "category": 2,
+        "grade": 2,
+        "level": 0,
+        "question": "This is a question",
+        "correctChoice": "This is the correct choice",
+        "otherChoices": [
+                "This is an answer choice",
+                "This is an answer choice"
+        ]
+    },
+    {
+        "id": 3,
+        "dateCreated": null,
+        "dateLastUpdated": null,
+        "type": "mc",
+        "category": 2,
+        "grade": 2,
+        "level": 0,
+        "question": "This is a question",
+        "correctChoice": "This is the correct choice",
+        "otherChoices": [
+                "This is an answer choice",
+                "This is an answer choice"
+        ]
     }
-}
+
+]
