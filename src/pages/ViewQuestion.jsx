@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 const ViewQuestion = () => {
 
-    const { level, category } = useParams();
+    const { grade, category } = useParams();
 
     return (
         <>
@@ -12,7 +12,7 @@ const ViewQuestion = () => {
                 <Link className="link back-to-selection" to="/">Back To Selection</Link> 
                 <div className='question'>
                     <div className='question-row'>
-                        <h5>Level {level}</h5>
+                        <h5>Grade {grade}</h5>
                         <h5>Category {category}</h5>
                         <h1 className='question-heading'>This is a question</h1>
                     </div>

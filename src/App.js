@@ -4,7 +4,7 @@ from 'react-router-dom';
 
 import './style/style.css'
 
-import Home from './pages/Home';
+import EliminationRound from './pages/EliminationRound';
 import ViewQuestion from './pages/ViewQuestion';
 import AdminLogin from './pages/AdminLogin';
 import Admin from './pages/Admin';
@@ -27,8 +27,8 @@ const App = () => {
     <div ref={page} className="app">
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} exact/>
-        <Route path="/view-question/:level/:category" element={<ViewQuestion/>}/>
+        <Route path="/" element={<EliminationRound/>} exact/>
+        <Route path="/view-question/:grade/:category" element={<ViewQuestion/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin/2iu80qpo0w23/" element={<Admin/>}/>
       </Routes>

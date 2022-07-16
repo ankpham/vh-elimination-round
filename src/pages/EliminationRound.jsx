@@ -1,26 +1,26 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
-const Home = () => {
+const EliminationRound = () => {
 
     const levelContainer = useRef(null);
     const categoryContainer = useRef(null);
 
-    const [level, setLevel] = useState(1);
+    const [level, setLevel] = useState(0);
     const [category, setCategory] = useState(1);
 
-    const [prevLevel, setPrevLevel] = useState(null);
-    const [prevCategory, setPrevCategory] = useState(null);
+    const [prevLevel, setPrevLevel] = useState(0);
+    const [prevCategory, setPrevCategory] = useState(1);
 
     const setActive = (func, int) => {
     
         if (func === "level") {
             if (prevLevel !== null) {
-                levelContainer.current.children[prevLevel-1].classList = "select";
+                levelContainer.current.children[prevLevel].classList = "select";
             }
             setPrevLevel(int);
             setLevel(int)
-            levelContainer.current.children[int-1].classList = "select active";
+            levelContainer.current.children[int].classList = "select active";
         }
         else {
             if (prevCategory !== null) {
@@ -34,7 +34,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        if (level === 1) {
+        if (level === 0) {
             levelContainer.current.children[0].classList = "select active";
         }
         else {
@@ -59,11 +59,18 @@ const Home = () => {
                     <span className="select" onClick={() => setActive("level", 1)}>Grade 1</span>
                     <span className="select" onClick={() => setActive("level", 2)}>Grade 2</span>
                     <span className="select" onClick={() => setActive("level", 3)}>Grade 3</span>
+                    <span className="select" onClick={() => setActive("level", 4)}>Grade 4</span>
+                    <span className="select" onClick={() => setActive("level", 5)}>Grade 5</span>
+                    <span className="select" onClick={() => setActive("level", 6)}>Grade 6</span>
+                    <span className="select" onClick={() => setActive("level", 7)}>Grade 7</span>
+                    <span className="select" onClick={() => setActive("level", 8)}>Grade 8</span>
                 </div>
                 <div ref={categoryContainer} className="category">
                     <span className="select" onClick={() => setActive("category", 1)}>Category 1</span>
                     <span className="select" onClick={() => setActive("category", 2)}>Category 2</span>
                     <span className="select" onClick={() => setActive("category", 3)}>Category 3</span>
+                    <span className="select" onClick={() => setActive("category", 4)}>Category 4</span>
+                    <span className="select" onClick={() => setActive("category", 5)}>Category 5</span>
                 </div>
                 <Link className="link" to={"/view-question/" + level + "/" + category}>View Question</Link>
             </div>
@@ -73,4 +80,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default EliminationRound;
