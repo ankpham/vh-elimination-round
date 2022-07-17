@@ -21,7 +21,7 @@ const AdminLogin = () => {
     return (
         <div className="home">
             <div className="container">
-                <Link className="link back-to-selection" to="/">Back To Selection</Link> 
+                <Link className="link back-to-selection" to="/elimination-round">Back To Selection</Link> 
                 <h1 className='heading'>Login</h1>
                 <div>
                     <div className="form-row">

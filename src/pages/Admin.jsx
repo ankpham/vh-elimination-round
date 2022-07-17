@@ -19,7 +19,7 @@ const Admin = () => {
         <>
         <div className="admin">
             <div className="container">
-                <Link className="link back-to-selection" to="/">Back To Selection</Link> 
+                <Link className="link back-to-selection" to="/elimination-round">Back To Selection</Link> 
                 <h1 className='heading'>Admin</h1>
                 <div className="admin-container">
                     <form className="add-question">

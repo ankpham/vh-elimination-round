@@ -9,7 +9,7 @@ const ViewQuestion = () => {
         <>
         <div className='view-question'> 
             <div className='container'>
-                <Link className="link back-to-selection" to="/">Back To Selection</Link> 
+                <Link className="link back-to-selection" to="/elimination-round">Back To Selection</Link> 
                 <div className='question'>
                     <div className='question-row'>
                         <h5>Grade {grade}</h5>

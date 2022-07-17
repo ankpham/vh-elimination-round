@@ -4,12 +4,7 @@
     width: 100%;
 }
 
-.home .level {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.home .category {
-    display: flex;
-    margin-bottom: 20px;
+.home .start-link {
+    margin: auto;
+    margin-top: 35vh;
 }
