@@ -5,7 +5,8 @@ from 'react-router-dom';
 import './style/style.css'
 
 import Home from './pages/Home';
-import EliminationRound from './pages/EliminationRound';
+import SelectGrade from './pages/SelectGrade';
+import SelectCategoryAndPoints from './pages/SelectCategoryAndPoints';
 import ViewQuestion from './pages/ViewQuestion';
 import AdminLogin from './pages/AdminLogin';
 import Admin from './pages/Admin';
@@ -14,13 +15,14 @@ const App = () => {
   const page = useRef(null);
   const fullScreenButton = useRef(null);
 
+  
   const fullscreen = () => {
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
-      document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
-      document.documentElement.msRequestFullscreen();
+    if (page.current.requestFullscreen) {
+      page.current.requestFullscreen();
+    } else if (page.current.webkitRequestFullscreen) { /* Safari */
+      page.current.webkitRequestFullscreen();
+    } else if (page.current.msRequestFullscreen) { /* IE11 */
+      page.current.msRequestFullscreen();
     }
   }
 
@@ -29,8 +31,9 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} exact/>
-        <Route path="/elimination-round" element={<EliminationRound/>}/>
-        <Route path="/view-question/:grade/:category" element={<ViewQuestion/>}/>
+        <Route path="/select-grade" element={<SelectGrade/>}/>
+        <Route path="/select-category-and-points/:grade" element={<SelectCategoryAndPoints/>}/>
+        <Route path="/view-question/:grade/:category/:points" element={<ViewQuestion/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin/2iu80qpo0w23/" element={<Admin/>}/>
       </Routes>

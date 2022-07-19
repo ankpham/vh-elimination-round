@@ -3,17 +3,30 @@ import { useParams, Link } from "react-router-dom";
 
 const ViewQuestion = () => {
 
-    const { grade, category } = useParams();
+    const { grade, category, points } = useParams();
+
+    let convertedGrade = 0;
+
+    if (grade === "0") {
+        convertedGrade = "MG"
+    }
+    else if (grade === "1") {
+        convertedGrade = "VL"
+    }
+    else {
+        convertedGrade = (parseInt(grade) - 1).toString()
+    }
 
     return (
         <>
         <div className='view-question'> 
-            <div className='container'>
-                <Link className="link back-to-selection" to="/elimination-round">Back To Selection</Link> 
+            <div id="container" className='container'>
+                <Link className="link back-to-selection" to="/select-grade">Back To Selection</Link> 
                 <div className='question'>
                     <div className='question-row'>
-                        <h5>Grade {grade}</h5>
+                        <h5>Lớp {convertedGrade}</h5>
                         <h5>Category {category}</h5>
+                        <h5>{points + 0} Points</h5>
                         <h1 className='question-heading'>This is a question</h1>
                     </div>
                     <ul className="choices">

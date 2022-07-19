@@ -4,7 +4,23 @@
     width: 100%;
 }
 
+.home .container {
+    background-image: url("../assets/background-with-kids-1920-1080.jpg");
+}
+
 .home .start-link {
     margin: auto;
-    margin-top: 35vh;
+    margin-top: 20vh;
+    font-size: 30px;
+}
+
+.home .heading {
+    margin-top: 15vh;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.home .sub-heading {
+    font-size: 45px;
+    font-weight: 600;
 }
