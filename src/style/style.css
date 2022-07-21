@@ -4,6 +4,7 @@
 @import url('admin.css');
 
 @import url('background-colors.css');
+@import url('border-colors.css');
 
 .app {
     background-color: rgba(255,255,255,0);
@@ -47,28 +48,34 @@ body {
     text-align: center;
     width: 200px;
     text-decoration: none;
-    border: gray solid 2px;
+    border: navy solid 2px;
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
+    transition: border .1s;
 }
 
 .link:hover {
-    background-color: lightgray;
+    border: navy 3px solid;
+}
+
+.link:active {
+    border: navy 4px solid;
 }
 
 .select {
-    font-size: 20px;
-    width: 140px;
+    font-size: 24px;
     text-align: center;
     display: block;
-    padding: 10px;
-    margin: 5px;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: .7vh;
     border: gray solid 1px;
     border-radius: 10px;
     cursor: pointer;
-    color: white;
-    background-color: #7dc0ff;
+    background-color: white;
     transition: border .1s;
 }
 
@@ -134,4 +141,8 @@ input {
 
 .link.next:hover {
     background:none;
+}
+.column {
+    display: flex;
+    flex-direction: column;
 }

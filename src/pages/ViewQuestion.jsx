@@ -26,7 +26,7 @@ const ViewQuestion = () => {
                     <div className='question-row'>
                         <h5>Lớp {convertedGrade}</h5>
                         <h5>Category {category}</h5>
-                        <h5>{points + 0} Points</h5>
+                        <h5>{points} Points</h5>
                         <h1 className='question-heading'>This is a question</h1>
                     </div>
                     <ul className="choices">

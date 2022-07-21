@@ -1,78 +1,85 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState, useMemo} from 'react';
 import {Link, useParams} from 'react-router-dom';
 
 const SelectCategoryAndPoints = () => {
+    const heading = useRef();
 
     const {grade} = useParams();
 
-    const pointsContainer = useRef(null);
-    const categoryContainer = useRef(null);
+    const [headingText, setHeadingText] = useState(null);
 
-    const [points, setPoints] = useState(1);
-    const [category, setCategory] = useState(1);
-
-    const [prevPoints, setPrevPoints] = useState(1);
-    const [prevCategory, setPrevCategory] = useState(1);
-
-    const setActive = (func, int) => {
-    
-        if (func === "points") {
-            if (prevPoints !== null) {
-                pointsContainer.current.children[prevPoints-1].classList = "select";
-            }
-            setPrevPoints(int);
-            setPoints(int)
-            pointsContainer.current.children[int-1].classList = "select active";
-        }
-        else {
-            if (prevCategory !== null) {
-                categoryContainer.current.children[prevCategory-1].classList = "select";
-            }
-            setPrevCategory(int);
-            setCategory(int)
-            categoryContainer.current.children[int-1].classList = "select active";
-        }
-
-    }
+    let gradeMapping = useMemo(() => 
+        new Map([
+            ["0", "background-yellow"], ["1", "background-orange"], ["2", "background-red"], 
+            ["3", "background-darkred"], ["4", "background-purple"], ["5", "background-blue"], 
+            ["6", "background-lightblue"], ["7", "background-cyan"], ["8", "background-green"]
+        ])
+    , [])
 
     useEffect(() => {
-        if (points === 1) {
-            pointsContainer.current.children[0].classList = "select active";
+        if (grade === "0") {
+            setHeadingText("Lớp MG")
+        }
+        else if (grade === "1") {
+            setHeadingText("Lớp VL")
         }
         else {
-            pointsContainer.current.children[0].classList = "select";
-        }
-        if (category === 1) {
-            categoryContainer.current.children[0].classList = "select active";
-        }
-        else {
-            categoryContainer.current.children[0].classList = "select";
+            setHeadingText("Lớp " + (grade-1))
         }
 
-    }, [points, category, pointsContainer, categoryContainer])
+        heading.current.classList.add(gradeMapping.get(grade))
+        
+    }, [grade, heading, gradeMapping])
 
     return (
         <>
         <div className="selection">
             <div className="container">
-                <h1 className='heading'>Selection</h1>
-                <div className='selection-container'>
-                    <div ref={categoryContainer} className="category">
-                        <span className="select" onClick={() => setActive("category", 1)}>Category 1</span>
-                        <span className="select" onClick={() => setActive("category", 2)}>Category 2</span>
-                        <span className="select" onClick={() => setActive("category", 3)}>Category 3</span>
-                        <span className="select" onClick={() => setActive("category", 4)}>Category 4</span>
-                        <span className="select" onClick={() => setActive("category", 5)}>Category 5</span>
-                    </div>
-                    <div ref={pointsContainer} className="points">
-                        <span className="select" onClick={() => setActive("points", 1)}>10</span>
-                        <span className="select" onClick={() => setActive("points", 2)}>20</span>
-                        <span className="select" onClick={() => setActive("points", 3)}>30</span>
-                        <span className="select" onClick={() => setActive("points", 4)}>40</span>
-                        <span className="select" onClick={() => setActive("points", 5)}>50</span>
+                <h1 ref={heading} className='heading'>{headingText}</h1>
+                <div className='selection-container-category-points'>
+                    <div className="category">
+                        <div className='column'>
+                            <span className="select border-yellow">Category 1</span>
+                            <Link to={"/view-question/" + grade + "/1/10"} className="select border-yellow">10</Link>
+                            <Link to={"/view-question/" + grade + "/1/20"} className="select border-yellow">20</Link>
+                            <Link to={"/view-question/" + grade + "/1/30"} className="select border-yellow">30</Link>
+                            <Link to={"/view-question/" + grade + "/1/40"} className="select border-yellow">40</Link>
+                            <Link to={"/view-question/" + grade + "/1/50"} className="select border-yellow">50</Link>
+                        </div>
+                        <div className='column'>
+                            <span className="select border-red">Category 2</span>
+                            <Link to={"/view-question/" + grade + "/2/10"} className="select border-red">10</Link>
+                            <Link to={"/view-question/" + grade + "/2/20"} className="select border-red">20</Link>
+                            <Link to={"/view-question/" + grade + "/2/30"} className="select border-red">30</Link>
+                            <Link to={"/view-question/" + grade + "/2/40"} className="select border-red">40</Link>
+                            <Link to={"/view-question/" + grade + "/2/50"} className="select border-red">50</Link>
+                        </div>
+                        <div className='column'>
+                            <span className="select border-green">Category 3</span>
+                            <Link to={"/view-question/" + grade + "/3/10"} className="select border-green">10</Link>
+                            <Link to={"/view-question/" + grade + "/3/20"} className="select border-green">20</Link>
+                            <Link to={"/view-question/" + grade + "/3/30"} className="select border-green">30</Link>
+                            <Link to={"/view-question/" + grade + "/3/40"} className="select border-green">40</Link>
+                            <Link to={"/view-question/" + grade + "/3/50"} className="select border-green">50</Link>
+                        </div>
+                        <div className='column'>
+                            <span className="select border-orange">Category 4</span>
+                            <Link to={"/view-question/" + grade + "/4/10"} className="select border-orange">10</Link>
+                            <Link to={"/view-question/" + grade + "/4/20"} className="select border-orange">20</Link>
+                            <Link to={"/view-question/" + grade + "/4/30"} className="select border-orange">30</Link>
+                            <Link to={"/view-question/" + grade + "/4/40"} className="select border-orange">40</Link>
+                            <Link to={"/view-question/" + grade + "/4/50"} className="select border-orange">50</Link>
+                        </div>
+                        <div className='column'>
+                            <span className="select border-cyan">Category 5</span>
+                            <Link to={"/view-question/" + grade + "/5/10"} className="select border-cyan">10</Link>
+                            <Link to={"/view-question/" + grade + "/5/20"} className="select border-cyan">20</Link>
+                            <Link to={"/view-question/" + grade + "/5/30"} className="select border-cyan">30</Link>
+                            <Link to={"/view-question/" + grade + "/5/40"} className="select border-cyan">40</Link>
+                            <Link to={"/view-question/" + grade + "/5/50"} className="select border-cyan">50</Link>
+                        </div>
                     </div>
                 </div>
-                <Link className="link to-view-question" to={"/view-question/" + grade + "/" + category + "/" + points}>View Question</Link>
             </div>
         </div>
         </>
