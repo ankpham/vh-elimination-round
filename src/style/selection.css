@@ -75,7 +75,12 @@
     padding-bottom: 3vh;
 }
 
+.selection .selection-container-category-points .category .column .select:first-child:hover {
+    border-width: 3px;
+}
+
 .selection .selection-container-category-points .category .column .select {
     width: 100%;
-    border-width: 2px;
+    border-width: 3px;
+    background-color: #f8f4f4;
 }
