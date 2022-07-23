@@ -11,7 +11,7 @@ import ViewQuestion from './pages/ViewQuestion';
 import AdminLogin from './pages/AdminLogin';
 import Admin from './pages/Admin';
 
-import audio from './assets/click-sound-effect.mp3';
+//import audio from './assets/click-sound-effect.mp3';
 
 const App = () => {   
   const page = useRef(null);
@@ -28,15 +28,16 @@ const App = () => {
     }
   }
 
+  /*
   let clickSoundEffect = new Audio(audio);
 
   const playSound = () => {
     clickSoundEffect.play();
     clickSoundEffect = new Audio(audio)
-  }
+  }*/
 
   return (
-    <div ref={page} onClickCapture={() => playSound()} className="app">
+    <div ref={page} /*onClickCapture={() => playSound()}*/ className="app">
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} exact/>
