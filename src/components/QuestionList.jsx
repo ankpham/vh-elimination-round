@@ -5,7 +5,8 @@ const Question = (props) => {
         <>
         {props.data.map((question,index) => {
             return (
-                <div class="question" key={index}>
+                <div className="question" key={index}>
+                    <p>Round: {question.round}</p>
                     <p>Grade: {question.grade === 0 ? 'MG' : question.grade}</p>
                     <p>Category: {question.category}</p>
                     <p>Question: {question.question}</p>
@@ -14,7 +15,7 @@ const Question = (props) => {
                     {question.otherChoices.map((choices, idx) => {
                         return (
                             <div key={idx}>
-                                <p>Answer Choice: {choices.choice}</p>
+                                <p>Answer Choice: {choices}</p>
                             </div>
                         )
                     })}

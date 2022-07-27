@@ -4,19 +4,46 @@
     width: 100%;
 }
 
-.admin-container {
-    display: flex;
-    flex-direction: row;
+.admin .heading {
+    margin-bottom: 2vh;
 }
 
-.add-question {
-    width: 50%;
-    height: 60vh;
-    border-right: black solid 1px;
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    width: 40%;
+    margin: auto;
+    margin-top: 0;
+}
+
+.admin-container .menu-bar select {
+    margin-right: 5vh;
 }
 
 .question-list {
-    width: 50%;
-    height: 60vh;
+    width: 100%;
+    margin: auto;
+    height: 80%;
+    background-color: white;
     overflow: scroll;
+    border: black 1px solid;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 0;
+}
+
+.question-list .question {
+    border: 2px solid black;
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.question-list .question p {
+    border: 1px solid black;
+    padding: 1%;
+    margin: 0;
 }
