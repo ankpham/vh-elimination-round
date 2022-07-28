@@ -68,3 +68,21 @@
     margin-right: 3%;
     cursor: pointer;
 }
+
+.timer p {
+    background-color: red;
+    text-align: center;
+    float: right;
+    position: absolute;
+    font-size: 70px;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    width: 12vw;
+    right: 9.5vw;
+    border-radius: 1200px;
+    cursor: pointer;
+}
+
+.timer p.active {
+    background-color: green;
+}

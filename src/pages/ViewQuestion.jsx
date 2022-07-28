@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import ReactConfetti from 'react-confetti';
+import Timer from './Timer';
 import {TbLetterA, TbLetterB, TbLetterC} from 'react-icons/tb';
 import { useParams, Link } from "react-router-dom";
 import ding from '../assets/Em Vui Em Học - Correct Answer - 1s.mp3';
@@ -109,6 +110,9 @@ const ViewQuestion = () => {
                             <h5>Lớp {convertedGrade}</h5>
                             <h5>Category {category}</h5>
                             <h5>{points} Points</h5>
+                        </div>
+                        <div className='timer'>
+                            <Timer/>
                         </div>
                         <h1 className='question-heading'>{question}</h1>
                     </div>
