@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Question = (props) => {
+const QuestionList = (props) => {
     return (
         <>
         {props.data.map((question,index) => {
             return (
                 <div className="question" key={index}>
+                    <p>Id: {question.id}</p>
                     <p>Round: {question.round}</p>
-                    <p>Grade: {question.grade === 0 ? 'MG' : question.grade}</p>
+                    <p>Grade: {question.grade}</p>
                     <p>Category: {question.category}</p>
+                    <p>Points: {question.points}</p>
                     <p>Question: {question.question}</p>
                     <p>Type: {question.type}</p>
                     <p>Correct Choice: {question.correctChoice}</p>
@@ -26,4 +28,4 @@ const Question = (props) => {
     )
 }
 
-export default Question;
+export default QuestionList;

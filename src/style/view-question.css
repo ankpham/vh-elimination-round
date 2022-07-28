@@ -50,6 +50,8 @@
     box-shadow: 1px 1px 5px gray;
     font-size: 25px;
     transition: .5s padding;
+    user-select: none;
+    cursor: pointer;
 }
 
 .question .choices .choice-container li:hover {
@@ -64,4 +66,5 @@
     padding: 1.7vw;
     border-radius: 1vw;
     margin-right: 3%;
+    cursor: pointer;
 }

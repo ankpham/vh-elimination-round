@@ -11,7 +11,7 @@ const SelectCategoryAndPoints = () => {
     let gradeMapping = useMemo(() => 
         new Map([
             ["0", "background-yellow"], ["1", "background-orange"], ["2", "background-red"], 
-            ["3", "background-darkred"], ["4", "background-purple"], ["5", "background-blue"], 
+            ["3", "background-darkred"], ["4", "background-purple"], ["5", "background-navy"], 
             ["6", "background-lightblue"], ["7", "background-cyan"], ["8", "background-green"]
         ])
     , [])
