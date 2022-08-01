@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
-import ReactConfetti from 'react-confetti';
+import React, {useState, useEffect, useRef} from 'react';
+import party from 'party-js';
 import Timer from './Timer';
 import {TbLetterA, TbLetterB, TbLetterC} from 'react-icons/tb';
 import { useParams, Link } from "react-router-dom";
@@ -27,12 +27,15 @@ const ViewQuestion = () => {
         convertedGrade = grade;
     }
 
-    //Confetti Effect
-    const [windowDimension, setDimension] = useState({width: window.innerWidth, height: window.innerHeight});
-    const [confetti, setConfetti] = useState(false);
+    //Confetti Effect=
+    const confetti = useRef(null);
 
-    const detectSize = () =>{
-        setDimension({width: window.innerWidth, height: window.innerHeight});
+    const setConfetti = () => {
+        party.confetti(confetti.current, {
+            count: party.variation.range(100, 200),
+            size: party.variation.range(2, 2.5),
+            spread: party.variation.range(80, 160)
+        });
     }
 
     const user = "089e-weni-098w";
@@ -50,14 +53,7 @@ const ViewQuestion = () => {
             setChoice2(arr[1]);
             setChoice3(arr[2]);
         })
-
-        window.addEventListener('resize', detectSize);
-        return () => {
-          window.removeEventListener('resize', detectSize);
-        }
-
-
-    }, [windowDimension,category , convertedGrade, points]);
+    }, [category , convertedGrade, points]);
 
     //Sound Effect
     let dingSoundEffect = new Audio(ding);
@@ -98,7 +94,6 @@ const ViewQuestion = () => {
     const displayA = arr[0];
     const displayB = arr[1];
     const displayC = arr[2];
-
     return (
         <>
         <div className='view-question'> 
@@ -114,7 +109,7 @@ const ViewQuestion = () => {
                         <div className='timer'>
                             <Timer/>
                         </div>
-                        <h1 className='question-heading'>{question}</h1>
+                        <h1 ref={confetti} className='question-heading'>{question}</h1>
                     </div>
                     <ul className="choices">
                         <div className='choice-container'>
@@ -128,14 +123,6 @@ const ViewQuestion = () => {
                         </div>
                     </ul>
                 </div>
-                <ReactConfetti
-                    width={windowDimension.width}
-                    height={windowDimension.height}
-                    tweenDuration={10}
-                    initialVelocityY={100}
-                    numberOfPieces={250}
-                    run={confetti}
-                />
             </div>
         </div>
         </>
