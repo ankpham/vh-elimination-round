@@ -8,8 +8,6 @@ import Home from './pages/Home';
 import SelectGrade from './pages/SelectGrade';
 import SelectCategoryAndPoints from './pages/SelectCategoryAndPoints';
 import ViewQuestion from './pages/ViewQuestion';
-import AdminLogin from './pages/AdminLogin';
-import Admin from './pages/Admin';
 import Confetti from './pages/Confetti';
 
 //import audio from './assets/click-sound-effect.mp3';
@@ -45,14 +43,11 @@ const App = () => {
         <Route path="/select-grade" element={<SelectGrade/>}/>
         <Route path="/select-category-and-points/:grade" element={<SelectCategoryAndPoints/>}/>
         <Route path="/view-question/:grade/:category/:points" element={<ViewQuestion/>}/>
-        <Route path="/admin-login" element={<AdminLogin/>}/>
-        <Route path="/admin/2iu80qpo0w23/" element={<Admin/>}/>
         <Route path="/confetti" element={<Confetti/>}/>
       </Routes>
     </Router>
     <button ref={fullScreenButton} style={{right: '0', display: 'flex', position: 'absolute'}} onClick={() => fullscreen()}>Full Screen</button>
     </div>
-
   );
 }
 
