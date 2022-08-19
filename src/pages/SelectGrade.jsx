@@ -1,37 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 
 const SelectGrade = () => {
-
-    const gradeContainer = useRef(null);
-
-    const [grade, setGrade] = useState(0);
-
-    const [prevGrade, setPrevGrade] = useState(0);
-
-    const setActive = (func, int) => {
-    
-        if (func === "grade") {
-            if (prevGrade !== null) {
-                gradeContainer.current.children[prevGrade].classList.remove("active");
-            }
-            setPrevGrade(int);
-            setGrade(int)
-            gradeContainer.current.children[int].classList.add("active");
-        }
-    }
-
-    useEffect(() => {
-        if (grade === 0) {
-            gradeContainer.current.children[0].classList.add("active");
-        }
-        else {
-            gradeContainer.current.children[0].classList.remove("active");
-        }
-
-    }, [grade, gradeContainer])
-
     return (
         <>
         <div className="selection">
@@ -39,21 +10,18 @@ const SelectGrade = () => {
                 <nav className='header'/>
                 <nav className='header'/>
                 <div className='selection-container-grade'>
-                    <div ref={gradeContainer} className="grade">
-                        <span className="select background-yellow" onClick={() => setActive("grade", 0)}>Lớp MG</span>
-                        <span className="select background-orange" onClick={() => setActive("grade", 1)}>Lớp VL</span>
-                        <span className="select background-red" onClick={() => setActive("grade", 2)}>Lớp 1</span>
-                        <span className="select background-darkred" onClick={() => setActive("grade", 3)}>Lớp 2</span>
-                        <span className="select background-purple" onClick={() => setActive("grade", 4)}>Lớp 3</span>
-                        <span className="select background-navy" onClick={() => setActive("grade", 5)}>Lớp 4</span>
-                        <span className="select background-lightblue" onClick={() => setActive("grade", 6)}>Lớp 5</span>
-                        <span className="select background-cyan" onClick={() => setActive("grade", 7)}>Lớp 6</span>
-                        <span className="select background-green" onClick={() => setActive("grade", 8)}>Lớp 7</span>
+                    <div className="grade">
+                        <Link to={"/select-category-and-points/mg"} className="select background-yellow">Lớp MG</Link>
+                        <Link to={"/select-category-and-points/vl"} className="select background-orange">Lớp VL</Link>
+                        <Link to={"/select-category-and-points/1"} className="select background-red">Lớp 1</Link>
+                        <Link to={"/select-category-and-points/2"} className="select background-darkred">Lớp 2</Link>
+                        <Link to={"/select-category-and-points/3"} className="select background-purple">Lớp 3</Link>
+                        <Link to={"/select-category-and-points/4"} className="select background-navy">Lớp 4</Link>
+                        <Link to={"/select-category-and-points/5"} className="select background-lightblue">Lớp 5</Link>
+                        <Link to={"/select-category-and-points/6"} className="select background-cyan">Lớp 6</Link>
+                        <Link to={"/select-category-and-points/7"} className="select background-green">Lớp 7</Link>
                     </div>
                 </div>
-                <Link className="link next" to={"/select-category-and-points/" + grade}>
-                    &#10132;
-                </Link>
             </div>
         </div>
         </>

@@ -15,18 +15,6 @@ const ViewQuestion = () => {
 
     const { grade, category, points } = useParams();
 
-    let convertedGrade = 0;
-
-    if (grade === "0") {
-        convertedGrade = "mg"
-    }
-    else if (grade === "1") {
-        convertedGrade = "vl"
-    }
-    else {
-        convertedGrade = grade;
-    }
-
     //Confetti Effect=
     const confetti = useRef(null);
 
@@ -43,7 +31,7 @@ const ViewQuestion = () => {
 
     useEffect(()=>{
         axios.get('http://localhost:8080/get/question/round/1/category/' + category + 
-        '/grade/' + convertedGrade + '/points/' + points, {auth: { username: user, password: pass}}
+        '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
             console.log(response.data.id)
             setQuestion(response.data.question);
@@ -53,7 +41,7 @@ const ViewQuestion = () => {
             setChoice2(arr[1]);
             setChoice3(arr[2]);
         })
-    }, [category , convertedGrade, points]);
+    }, [category, points, grade]);
 
     //Sound Effect
     let dingSoundEffect = new Audio(ding);
@@ -102,7 +90,7 @@ const ViewQuestion = () => {
                 <div className='question'>
                     <div className='question-row'>
                         <div hidden>
-                            <h5>Lớp {convertedGrade}</h5>
+                            <h5>Lớp {grade}</h5>
                             <h5>Category {category}</h5>
                             <h5>{points} Points</h5>
                         </div>

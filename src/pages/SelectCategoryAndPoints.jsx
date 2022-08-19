@@ -10,17 +10,17 @@ const SelectCategoryAndPoints = () => {
 
     let gradeMapping = useMemo(() => 
         new Map([
-            ["0", "background-yellow"], ["1", "background-orange"], ["2", "background-red"], 
+            ["mg", "background-yellow"], ["vl", "background-orange"], ["2", "background-red"], 
             ["3", "background-darkred"], ["4", "background-purple"], ["5", "background-navy"], 
             ["6", "background-lightblue"], ["7", "background-cyan"], ["8", "background-green"]
         ])
     , [])
 
     useEffect(() => {
-        if (grade === "0") {
+        if (grade === "mg") {
             setHeadingText("Lớp MG")
         }
-        else if (grade === "1") {
+        else if (grade === "vl") {
             setHeadingText("Lớp VL")
         }
         else {
