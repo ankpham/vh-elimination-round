@@ -34,7 +34,8 @@ const SelectCategoryAndPoints = () => {
     return (
         <>
         <div className="selection">
-            <div className="container">
+            <div className="container category">
+                <Link className="link back-to-selection" to={"/select-grade/"}>Trở Về Trang Đầu</Link> 
                 <h1 ref={heading} className='heading'>{headingText}</h1>
                 <div className='selection-container-category-points'>
                     <div className="category">

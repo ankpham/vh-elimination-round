@@ -88,9 +88,9 @@ body {
 
 .link.back-to-selection {
     position: absolute;
-    margin: 10px;
-    margin-right: 7%;
-    right: 0;
+    margin-left: 5%;
+    margin-top: 5%;
+    left: 0;
 }
 
 .link.admin {

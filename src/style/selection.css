@@ -51,6 +51,11 @@
     margin: auto;
 }
 
+.selection .container.category {
+    background: url('../assets/EVEH-no-logo-1920x1080.jpg');
+    background-size: contain;
+}
+
 .selection .selection-container-category-points .category {
     display: flex;
     margin: auto;
@@ -80,4 +85,5 @@
     width: 100%;
     border-width: 3px;
     background-color: #f8f4f4;
+    text-decoration: none;
 }
