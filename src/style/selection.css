@@ -87,3 +87,7 @@
     background-color: #f8f4f4;
     text-decoration: none;
 }
+
+.selection-used {
+    opacity: 0;
+}

@@ -15,7 +15,7 @@ const ViewQuestion = () => {
 
     const { grade, category, points } = useParams();
 
-    //Confetti Effect=
+    //Confetti Effect
     const confetti = useRef(null);
 
     const setConfetti = () => {

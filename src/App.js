@@ -25,14 +25,19 @@ const App = () => {
       page.current.msRequestFullscreen();
     }
   }
-
-  /*
-  let clickSoundEffect = new Audio(audio);
-
-  const playSound = () => {
-    clickSoundEffect.play();
-    clickSoundEffect = new Audio(audio)
+/*
+  let usedQuestions = {
+    "mg": [[],[],[],[],[]],
+    "vl": [[],[],[],[],[]],
+    "1": [[],[],[],[],[]],
+    "2": [[],[],[],[],[]],
+    "3": [[],[],[],[],[]],
+    "4": [[],[],[],[],[]],
+    "5": [[],[],[],[],[]],
+    "6": [[],[],[],[],[]],
+    "7": [[],[],[],[],[]]
   }*/
+  
 
   return (
     <div ref={page} className="app">
