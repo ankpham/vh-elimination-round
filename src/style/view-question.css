@@ -91,3 +91,52 @@
 .timer p.active {
     background-color: green;
 }
+
+.inactive-check {
+    float: right;
+    color: green;
+    height: 5%;
+    width: 5%;
+    opacity: 0;
+}
+
+.inactive-x {
+    float: right;
+    color: red;
+    height: 5%;
+    width: 5%;
+    opacity: 0;
+}
+
+.active-x-check {
+    opacity: 100;
+    animation: activeXCheck;
+    animation-duration: .4s;
+}
+
+@keyframes activeXCheck {
+    0% {
+        width: 3%;
+        height: 3%;
+        padding-left: 3px;
+    }
+    25% {
+        width: 4%;
+        height: 4%;
+        padding-right: 3px;
+    }
+    50% {
+        width: 5%;
+        height: 5%;
+        padding-left: 3px;
+    }
+    75% {
+        width: 5.5%;
+        height: 5.5%;
+        padding-right: 3px;
+    }
+    100% {
+        width: 5%;
+        height: 5%;
+    }
+  }

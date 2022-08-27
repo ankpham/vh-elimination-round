@@ -3,11 +3,16 @@ import React, {useState, useEffect, useRef} from 'react';
 import party from 'party-js';
 import Timer from './Timer';
 import {TbLetterA, TbLetterB, TbLetterC} from 'react-icons/tb';
+import {BsCheckLg, BsXLg} from 'react-icons/bs';
 import { useParams, Link } from "react-router-dom";
 import ding from '../assets/Em Vui Em Học - Correct Answer - 1s.mp3';
 import buzzer from '../assets/Em Vui Em Học - Wrong Answer Buzzer - 2s.mp3';
 
 const ViewQuestion = () => {
+    const correctElement = useRef(null);
+    const wrongElement1 = useRef(null);
+    const wrongElement2 = useRef(null);
+
     const [question, setQuestion] = useState('no question');
     const [choice1, setChoice1] = useState('no choice');
     const [choice2, setChoice2] = useState('no choice');
@@ -24,6 +29,18 @@ const ViewQuestion = () => {
             size: party.variation.range(2, 2.5),
             spread: party.variation.range(80, 160)
         });
+    }
+
+    const displayIcon = (questionLocation) => {
+        if (questionLocation === 'correct') {
+            correctElement.current.childNodes[1].classList.add('active-x-check');
+        }
+        else if (questionLocation === 'wrong1') {
+            wrongElement1.current.childNodes[1].classList.add('active-x-check');
+        }
+        else if (questionLocation === 'wrong2') {
+            wrongElement2.current.childNodes[1].classList.add('active-x-check');
+        }
     }
 
     const user = "089e-weni-098w";
@@ -58,15 +75,22 @@ const ViewQuestion = () => {
     }
 
     const correctChoice = (
-        <li onClickCapture={() => playDingSound()} onClick={() => setConfetti(true)} className='border-yellow'>{choice1}</li>
+        <li ref={correctElement} onClickCapture={() => playDingSound()} onClick={() => {
+            setConfetti(true)
+            displayIcon('correct')
+        }} className='border-yellow'>{choice1}<BsCheckLg className="inactive-check"/></li>
     )
 
     const otherChoice1 = (
-        <li onClickCapture={() => playBuzzerSound()} className='border-yellow'>{choice2}</li>
+        <li ref={wrongElement1} onClickCapture={() => playBuzzerSound()} onClick={() => {
+            displayIcon('wrong1')
+        }} className='border-yellow'>{choice2}<BsXLg className='inactive-x'/></li>
     )
 
     const otherChoice2 = (
-        <li onClickCapture={() => playBuzzerSound()} className='border-yellow'>{choice3}</li>
+        <li ref={wrongElement2} onClickCapture={() => playBuzzerSound()} onClick={() => {
+            displayIcon('wrong2')
+        }} className='border-yellow'>{choice3}<BsXLg className='inactive-x'/></li>
     )
     
     let arr = [correctChoice,otherChoice1,otherChoice2];
