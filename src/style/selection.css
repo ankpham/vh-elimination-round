@@ -91,4 +91,5 @@
 .selection-used {
     opacity: 0;
     cursor: default !important;
+    pointer-events: none;
 }
