@@ -11,16 +11,16 @@
 .home .start-link {
     margin: auto;
     margin-top: 20vh;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .home .heading {
     margin-top: 15vh;
-    font-size: 38px;
+    font-size: 45px;
     font-weight: 400;
 }
 
 .home .sub-heading {
-    font-size: 45px;
+    font-size: 70px;
     font-weight: 600;
 }
