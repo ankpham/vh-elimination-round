@@ -75,22 +75,22 @@ const ViewQuestion = () => {
     }
 
     const correctChoice = (
-        <li ref={correctElement} onClickCapture={() => playDingSound()} onClick={() => {
+        <div onClickCapture={() => playDingSound()} onClick={() => {
             setConfetti(true)
             displayIcon('correct')
-        }} className='border-yellow'>{choice1}<BsCheckLg className="inactive-check"/></li>
+        }} className='border-yellow'><p ref={correctElement} className="question-text">{choice1}<BsCheckLg className="inactive-check"/></p></div>
     )
 
     const otherChoice1 = (
-        <li ref={wrongElement1} onClickCapture={() => playBuzzerSound()} onClick={() => {
+        <div onClickCapture={() => playBuzzerSound()} onClick={() => {
             displayIcon('wrong1')
-        }} className='border-yellow'>{choice2}<BsXLg className='inactive-x'/></li>
+        }} className='border-yellow'><p ref={wrongElement1} className="question-text">{choice2}<BsXLg className='inactive-x'/></p></div>
     )
 
     const otherChoice2 = (
-        <li ref={wrongElement2} onClickCapture={() => playBuzzerSound()} onClick={() => {
+        <div onClickCapture={() => playBuzzerSound()} onClick={() => {
             displayIcon('wrong2')
-        }} className='border-yellow'>{choice3}<BsXLg className='inactive-x'/></li>
+        }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
     )
     
     let arr = [correctChoice,otherChoice1,otherChoice2];
@@ -106,6 +106,7 @@ const ViewQuestion = () => {
     const displayA = arr[0];
     const displayB = arr[1];
     const displayC = arr[2];
+
     return (
         <>
         <div className='view-question'> 
@@ -123,7 +124,7 @@ const ViewQuestion = () => {
                         </div>
                         <h1 ref={confetti} className='question-heading'>{question}</h1>
                     </div>
-                    <ul className="choices">
+                    <div className="choices">
                         <div className='choice-container'>
                             <TbLetterA className='letter-icon'/>{displayA}
                         </div>
@@ -133,7 +134,7 @@ const ViewQuestion = () => {
                         <div className='choice-container'>
                             <TbLetterC className='letter-icon'/>{displayC}
                         </div>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
