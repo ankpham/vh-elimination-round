@@ -47,7 +47,7 @@ const ViewQuestion = () => {
     const pass = "0842-0983-ibjw-2q9w";
 
     useEffect(()=>{
-        axios.get('http://localhost:8080/get/question/round/1/category/' + category + 
+        axios.get('http://44.202.103.225:8080/get/question/round/1/category/' + category + 
         '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
             console.log(response.data.id)
