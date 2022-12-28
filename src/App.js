@@ -49,6 +49,7 @@ const App = () => {
         <Route path="/view-question/:grade/:category/:points" element={<ViewQuestion/>}/>
       </Routes>
     </Router>
+    {/*remove overflow hidden to add scrollbar and access full screen button*/}
     <button ref={fullScreenButton} style={{right: '0', display: 'flex', position: 'absolute'}} onClick={() => fullscreen()}>Full Screen</button>
     </div>
   );
