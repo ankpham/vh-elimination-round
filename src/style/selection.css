@@ -73,8 +73,7 @@
 
 .selection .selection-container-category-points .category .column .select:first-child {
     cursor: default;
-    padding-top: 2.3vh;
-    padding-bottom: 2.3vh;
+    height: 8%;
 }
 
 .selection .selection-container-category-points .category .column .select:first-child:hover {
@@ -83,7 +82,7 @@
 
 .selection .selection-container-category-points .category .column .select {
     width: 100%;
-    font-size: 17px;
+    font-size: 22px;
     border-width: 3px;
     background-color: #f8f4f4;
     text-decoration: none;
