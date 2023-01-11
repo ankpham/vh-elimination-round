@@ -92,7 +92,7 @@ const SelectCategoryAndPoints = () => {
         <>
         <div className="selection">
             <div className="container category">
-                <Link className="link back-to-selection" to={"/select-grade/"}>Trở Về Trang Đầu</Link> 
+                <Link className="link back-to-selection-right" to={"/select-grade/"}>Trở Về Trang Đầu</Link> 
                 <h1 ref={heading} className='heading'>{headingText}</h1>
                 <div className='selection-container-category-points'>
                     <div ref={categoryElement} className="category">

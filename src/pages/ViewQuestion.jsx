@@ -135,7 +135,6 @@ const ViewQuestion = () => {
         <>
         <div className='view-question'> 
             <div id="container" className='container'>
-                <Link className="link back-to-selection" to={"/select-category-and-points/" + grade}>Trở Về Trang Đầu</Link> 
                 <div style={questionElementStyle} className='question'>
                     <div className='question-row'>
                         <div hidden>
@@ -160,6 +159,7 @@ const ViewQuestion = () => {
                         </div>
                     </div>
                 </div>
+                <Link className="link back-to-selection" to={"/select-category-and-points/" + grade}>Trở Về Trang Đầu</Link> 
             </div>
         </div>
         </>
