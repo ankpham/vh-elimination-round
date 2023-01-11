@@ -11,8 +11,8 @@ const SelectGrade = () => {
                 <nav className='header'/>
                 <div className='selection-container-grade'>
                     <div className="grade">
-                        <Link to={"/select-category-and-points/mg"} className="select background-yellow">Lớp MG</Link>
-                        <Link to={"/select-category-and-points/vl"} className="select background-orange">Lớp VL</Link>
+                        <Link to={"/select-category-and-points/mg"} className="select background-yellow">Lớp Mẫu Giáo</Link>
+                        <Link to={"/select-category-and-points/vl"} className="select background-orange">Lớp Vỡ Lòng</Link>
                         <Link to={"/select-category-and-points/1"} className="select background-red">Lớp 1</Link>
                         <Link to={"/select-category-and-points/2"} className="select background-pink">Lớp 2</Link>
                         <Link to={"/select-category-and-points/3"} className="select background-orchid">Lớp 3</Link>

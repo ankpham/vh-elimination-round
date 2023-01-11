@@ -20,10 +20,10 @@ const SelectCategoryAndPoints = () => {
 
     useEffect(() => {
         if (grade === "mg") {
-            setHeadingText("Lớp MG")
+            setHeadingText("Lớp Mẫu Giáo")
         }
         else if (grade === "vl") {
-            setHeadingText("Lớp VL")
+            setHeadingText("Lớp Vỡ Lòng")
         }
         else {
             setHeadingText("Lớp " + (grade))
@@ -97,7 +97,7 @@ const SelectCategoryAndPoints = () => {
                 <div className='selection-container-category-points'>
                     <div ref={categoryElement} className="category">
                         <div className='column'>
-                            <span className="select background-orchid border-orchid">Category 1</span>
+                            <span className="select background-orchid border-orchid">Gia Đình</span>
                             <Link onClick={() => newUsedQuestion(1,1)} to={"/view-question/" + grade + "/1/10"} className="select border-orchid">10</Link>
                             <Link onClick={() => newUsedQuestion(1,2)} to={"/view-question/" + grade + "/1/20"} className="select border-orchid">20</Link>
                             <Link onClick={() => newUsedQuestion(1,3)} to={"/view-question/" + grade + "/1/30"} className="select border-orchid">30</Link>
@@ -105,7 +105,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(1,5)} to={"/view-question/" + grade + "/1/50"} className="select border-orchid">50</Link>
                         </div>
                         <div className='column'>
-                            <span className="select background-lightblue border-lightblue">Category 2</span>
+                            <span className="select background-lightblue border-lightblue">Ngữ Vựng Chính Tả</span>
                             <Link onClick={() => newUsedQuestion(2,1)} to={"/view-question/" + grade + "/2/10"} className="select border-lightblue">10</Link>
                             <Link onClick={() => newUsedQuestion(2,2)} to={"/view-question/" + grade + "/2/20"} className="select border-lightblue">20</Link>
                             <Link onClick={() => newUsedQuestion(2,3)} to={"/view-question/" + grade + "/2/30"} className="select border-lightblue">30</Link>
@@ -113,7 +113,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(2,5)} to={"/view-question/" + grade + "/2/50"} className="select border-lightblue">50</Link>
                         </div>
                         <div className='column'>
-                            <span className="select background-yellow border-yellow">Category 3</span>
+                            <span className="select background-yellow border-yellow">Món Ăn</span>
                             <Link onClick={() => newUsedQuestion(3,1)} to={"/view-question/" + grade + "/3/10"} className="select border-yellow">10</Link>
                             <Link onClick={() => newUsedQuestion(3,2)} to={"/view-question/" + grade + "/3/20"} className="select border-yellow">20</Link>
                             <Link onClick={() => newUsedQuestion(3,3)} to={"/view-question/" + grade + "/3/30"} className="select border-yellow">30</Link>
@@ -121,7 +121,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(3,5)} to={"/view-question/" + grade + "/3/50"} className="select border-yellow">50</Link>
                         </div>
                         <div className='column'>
-                            <span className="select background-red border-red">Category 4</span>
+                            <span className="select background-red border-red">Phong Tục Tập Quán</span>
                             <Link onClick={() => newUsedQuestion(4,1)} to={"/view-question/" + grade + "/4/10"} className="select border-red">10</Link>
                             <Link onClick={() => newUsedQuestion(4,2)} to={"/view-question/" + grade + "/4/20"} className="select border-red">20</Link>
                             <Link onClick={() => newUsedQuestion(4,3)} to={"/view-question/" + grade + "/4/30"} className="select border-red">30</Link>
@@ -129,7 +129,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(4,5)} to={"/view-question/" + grade + "/4/50"} className="select border-red">50</Link>
                         </div>
                         <div className='column'>
-                            <span className="select background-green border-green">Category 5</span>
+                            <span className="select background-green border-green">Lịch Sử Địa Lý</span>
                             <Link onClick={() => newUsedQuestion(5,1)} to={"/view-question/" + grade + "/5/10"} className="select border-green">10</Link>
                             <Link onClick={() => newUsedQuestion(5,2)} to={"/view-question/" + grade + "/5/20"} className="select border-green">20</Link>
                             <Link onClick={() => newUsedQuestion(5,3)} to={"/view-question/" + grade + "/5/30"} className="select border-green">30</Link>
