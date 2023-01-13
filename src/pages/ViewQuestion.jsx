@@ -9,6 +9,7 @@ import ding from '../assets/Em Vui Em Học - Correct Answer - 1s.mp3';
 import buzzer from '../assets/Em Vui Em Học - Wrong Answer Buzzer - 2s.mp3';
 
 const ViewQuestion = () => {
+    const timerElement = useRef(null);
     const questionElement = useRef(null);
     const correctElement = useRef(null);
     const wrongElement1 = useRef(null);
@@ -52,6 +53,7 @@ const ViewQuestion = () => {
     const displayIcon = (questionLocation) => {
         if (questionLocation === 'correct') {
             correctElement.current.childNodes[1].classList.add('active-x-check');
+            timerElement.current.remove();
         }
         else if (questionLocation === 'wrong1') {
             wrongElement1.current.childNodes[1].classList.add('active-x-check');
@@ -142,7 +144,7 @@ const ViewQuestion = () => {
                             <h5>Category {category}</h5>
                             <h5>{points} Points</h5>
                         </div>
-                        <div className='timer'>
+                        <div ref={timerElement} className='timer'>
                             <Timer/>
                         </div>
                         <h1 ref={questionElement} className='question-heading'>{question}</h1>
