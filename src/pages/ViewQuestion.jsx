@@ -5,8 +5,8 @@ import Timer from './Timer';
 import {TbLetterA, TbLetterB, TbLetterC} from 'react-icons/tb';
 import {BsCheckLg, BsXLg} from 'react-icons/bs';
 import { useParams, Link } from "react-router-dom";
-import ding from '../assets/Em Vui Em Học - Correct Answer - 1s.mp3';
-import buzzer from '../assets/Em Vui Em Học - Wrong Answer Buzzer - 2s.mp3';
+import { PlayAudio } from '../components/PlayAudio';
+import { RandomizeChoices } from '../components/RandomizeChoices';
 
 const ViewQuestion = () => {
     const timerElement = useRef(null);
@@ -72,7 +72,7 @@ const ViewQuestion = () => {
         wrongContainer2.current.classList.add(selectionMapping.get(category))
         setLetterIcon(selectionMappingBackground.get(category))
         
-        axios.get('http://vhgamebackend.hvmatl.org:8080/get/question/round/1/category/' + category + 
+        axios.get('http://vh.backend.hvmatl.org:8080/get/question/round/1/category/' + category + 
         '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
             console.log(response.data.id)
@@ -86,48 +86,26 @@ const ViewQuestion = () => {
         })
     }, [category, points, grade]);
 
-    //Sound Effect
-    let dingSoundEffect = new Audio(ding);
-    let buzzerSoundEffect = new Audio(buzzer);
-
-    const playDingSound = () => {
-        dingSoundEffect.play();
-        dingSoundEffect = new Audio(ding)
-    }
-
-    const playBuzzerSound = () => {
-        buzzerSoundEffect.play();
-        buzzerSoundEffect = new Audio(buzzer)
-    }
-
     const correctChoice = (
-        <div ref={correctContainer} onClickCapture={() => playDingSound()} onClick={() => {
+        <div ref={correctContainer} onClickCapture={() => PlayAudio('ding')} onClick={() => {
             setConfetti(true)
             displayIcon('correct')
         }} className='border-yellow'><p ref={correctElement} className="question-text">{choice1}<BsCheckLg className="inactive-check"/></p></div>
     )
 
     const otherChoice1 = (
-        <div ref={wrongContainer1} onClickCapture={() => playBuzzerSound()} onClick={() => {
+        <div ref={wrongContainer1} onClickCapture={() => PlayAudio("buzzer")} onClick={() => {
             displayIcon('wrong1')
         }} className='border-yellow'><p ref={wrongElement1} className="question-text">{choice2}<BsXLg className='inactive-x'/></p></div>
     )
 
     const otherChoice2 = (
-        <div ref={wrongContainer2} onClickCapture={() => playBuzzerSound()} onClick={() => {
+        <div ref={wrongContainer2} onClickCapture={() => PlayAudio('buzzer')} onClick={() => {
             displayIcon('wrong2')
         }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
     )
     
-    let arr = [correctChoice,otherChoice1,otherChoice2];
-
-    let i = arr.length - 1;
-    for (; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+    let arr = RandomizeChoices(correctChoice,otherChoice1,otherChoice2);
 
     const displayA = arr[0];
     const displayB = arr[1];
