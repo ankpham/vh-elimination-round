@@ -125,7 +125,7 @@ const ViewQuestion = () => {
                         <div ref={timerElement} className='timer'>
                             <Timer/>
                         </div>
-                        <h1 ref={questionElement} className='question-heading'>{question}</h1>
+                        <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
                     </div>
                     <div className="choices">
                         <div className='choice-container'>
