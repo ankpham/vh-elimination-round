@@ -1,10 +1,16 @@
 import React, {useRef, useEffect, useState, useMemo} from 'react';
 import usedQuestions from '../database/used-questions.json';
 import {Link, useParams} from 'react-router-dom';
+import OptCategory from './OptCategory.jsx'
 
 const SelectCategoryAndPoints = () => {
     const heading = useRef();
     const categoryElement = useRef();
+    const optQuestion1 = useRef();
+    const optQuestion2 = useRef();
+    const optQuestion3 = useRef();
+    const optQuestion4 = useRef();
+    const optCategory = useRef(null);
 
     const {grade} = useParams();
 
@@ -31,6 +37,23 @@ const SelectCategoryAndPoints = () => {
 
         heading.current.classList.add(gradeMapping.get(grade))
         
+        if (grade === "mg" || grade === "vl" || grade === "1") {
+            optCategory.current.remove();
+        }
+
+        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
+            optQuestion1.current.remove();
+        }
+        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
+            optQuestion2.current.remove();
+        }
+        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
+            optQuestion3.current.remove();
+        }
+        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
+            optQuestion4.current.remove();
+        }
+
         let data;
         switch(grade) {
             case 'mg': data = usedQuestions.mg 
@@ -103,6 +126,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(1,3)} to={"/view-question/" + grade + "/1/30"} className="select border-orchid">30</Link>
                             <Link onClick={() => newUsedQuestion(1,4)} to={"/view-question/" + grade + "/1/40"} className="select border-orchid">40</Link>
                             <Link onClick={() => newUsedQuestion(1,5)} to={"/view-question/" + grade + "/1/50"} className="select border-orchid">50</Link>
+                            <div ref={optQuestion1} className='optQuestion'><Link onClick={() => newUsedQuestion(1,6)} to={"/view-question/" + grade + "/1/60"} className="select border-orchid">60</Link></div>
                         </div>
                         <div className='column'>
                             <span className="select background-lightblue border-lightblue">Ngữ Vựng Chính Tả</span>
@@ -111,6 +135,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(2,3)} to={"/view-question/" + grade + "/2/30"} className="select border-lightblue">30</Link>
                             <Link onClick={() => newUsedQuestion(2,4)} to={"/view-question/" + grade + "/2/40"} className="select border-lightblue">40</Link>
                             <Link onClick={() => newUsedQuestion(2,5)} to={"/view-question/" + grade + "/2/50"} className="select border-lightblue">50</Link>
+                            <div ref={optQuestion2} className='optQuestion'><Link onClick={() => newUsedQuestion(2,6)} to={"/view-question/" + grade + "/2/60"} className="select border-lightblue">60</Link></div>
                         </div>
                         <div className='column'>
                             <span className="select background-yellow border-yellow">Món Ăn</span>
@@ -119,6 +144,7 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(3,3)} to={"/view-question/" + grade + "/3/30"} className="select border-yellow">30</Link>
                             <Link onClick={() => newUsedQuestion(3,4)} to={"/view-question/" + grade + "/3/40"} className="select border-yellow">40</Link>
                             <Link onClick={() => newUsedQuestion(3,5)} to={"/view-question/" + grade + "/3/50"} className="select border-yellow">50</Link>
+                            <div ref={optQuestion3} className='optQuestion'><Link onClick={() => newUsedQuestion(3,6)} to={"/view-question/" + grade + "/3/60"} className="select border-yellow">60</Link></div>
                         </div>
                         <div className='column'>
                             <span className="select background-red border-red">Phong Tục Tập Quán</span>
@@ -127,14 +153,10 @@ const SelectCategoryAndPoints = () => {
                             <Link onClick={() => newUsedQuestion(4,3)} to={"/view-question/" + grade + "/4/30"} className="select border-red">30</Link>
                             <Link onClick={() => newUsedQuestion(4,4)} to={"/view-question/" + grade + "/4/40"} className="select border-red">40</Link>
                             <Link onClick={() => newUsedQuestion(4,5)} to={"/view-question/" + grade + "/4/50"} className="select border-red">50</Link>
+                            <div ref={optQuestion4} className='optQuestion'><Link onClick={() => newUsedQuestion(4,6)} to={"/view-question/" + grade + "/4/60"} className="select border-red">60</Link></div>
                         </div>
-                        <div className='column'>
-                            <span className="select background-green border-green">Lịch Sử Địa Lý</span>
-                            <Link onClick={() => newUsedQuestion(5,1)} to={"/view-question/" + grade + "/5/10"} className="select border-green">10</Link>
-                            <Link onClick={() => newUsedQuestion(5,2)} to={"/view-question/" + grade + "/5/20"} className="select border-green">20</Link>
-                            <Link onClick={() => newUsedQuestion(5,3)} to={"/view-question/" + grade + "/5/30"} className="select border-green">30</Link>
-                            <Link onClick={() => newUsedQuestion(5,4)} to={"/view-question/" + grade + "/5/40"} className="select border-green">40</Link>
-                            <Link onClick={() => newUsedQuestion(5,5)} to={"/view-question/" + grade + "/5/50"} className="select border-green">50</Link>
+                        <div ref={optCategory} className='column'>
+                            <OptCategory/>
                         </div>
                     </div>
                 </div>

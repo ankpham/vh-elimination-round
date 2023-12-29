@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "electron": "^22.0.0",
     "js-confetti": "^0.10.2",
+    "npm": "^10.2.5",
     "party-js": "^2.2.0",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
