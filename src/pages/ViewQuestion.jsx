@@ -72,7 +72,7 @@ const ViewQuestion = () => {
         wrongContainer2.current.classList.add(selectionMapping.get(category))
         setLetterIcon(selectionMappingBackground.get(category))
         
-        axios.get('http://vh.backend.hvmatl.org:8080/get/question/round/1/category/' + category + 
+        axios.get('http://vhbackend.hvmatl.org:8080/get/question/round/1/category/' + category + 
         '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
             console.log(response.data.id)
