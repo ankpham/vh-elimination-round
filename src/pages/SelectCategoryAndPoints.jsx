@@ -1,7 +1,6 @@
 import React, {useRef, useEffect, useState, useMemo} from 'react';
 import usedQuestions from '../database/used-questions.json';
 import {Link, useParams} from 'react-router-dom';
-import OptCategory from './OptCategory.jsx'
 
 const SelectCategoryAndPoints = () => {
     const heading = useRef();
@@ -37,23 +36,18 @@ const SelectCategoryAndPoints = () => {
 
         heading.current.classList.add(gradeMapping.get(grade))
         
+        //removes categories/points depending on grades
         if (grade === "mg" || grade === "vl" || grade === "1") {
             optCategory.current.remove();
         }
-
-        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
+        else {
             optQuestion1.current.remove();
-        }
-        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
             optQuestion2.current.remove();
-        }
-        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
             optQuestion3.current.remove();
-        }
-        if (grade === "2" || grade === "3" || grade === "4" || grade === "5" || grade === "6" || grade === "7") {
             optQuestion4.current.remove();
         }
 
+        //remove used questions
         let data;
         switch(grade) {
             case 'mg': data = usedQuestions.mg 
@@ -76,16 +70,16 @@ const SelectCategoryAndPoints = () => {
             break;
             default: console.log("broken")
         }
-
+        console.log(grade)
         for (let i = 0;i<data.length;i++) {
             for (let a = 0;a<data[i].length;a++) {
                 console.log('bob' + data[i][a])
-                categoryElement.current.childNodes[i].childNodes[data[i][a]].classList.add('selection-used');
+                categoryElement.current.childNodes[i].firstElementChild.childNodes[data[i][a]].classList.add('selection-used');
             }
         }
-
     }, [grade, heading, gradeMapping])
 
+    //adds used questions
     function newUsedQuestion(category, points) {
         switch(grade) {
             case 'mg': usedQuestions.mg[category-1].push(points);console.log(usedQuestions.mg[category-1]);
@@ -119,44 +113,69 @@ const SelectCategoryAndPoints = () => {
                 <h1 ref={heading} className='heading'>{headingText}</h1>
                 <div className='selection-container-category-points'>
                     <div ref={categoryElement} className="category">
-                        <div className='column'>
-                            <span className="select background-orchid border-orchid">Gia Đình</span>
-                            <Link onClick={() => newUsedQuestion(1,1)} to={"/view-question/" + grade + "/1/10"} className="select border-orchid">10</Link>
-                            <Link onClick={() => newUsedQuestion(1,2)} to={"/view-question/" + grade + "/1/20"} className="select border-orchid">20</Link>
-                            <Link onClick={() => newUsedQuestion(1,3)} to={"/view-question/" + grade + "/1/30"} className="select border-orchid">30</Link>
-                            <Link onClick={() => newUsedQuestion(1,4)} to={"/view-question/" + grade + "/1/40"} className="select border-orchid">40</Link>
-                            <Link onClick={() => newUsedQuestion(1,5)} to={"/view-question/" + grade + "/1/50"} className="select border-orchid">50</Link>
-                            <div ref={optQuestion1} className='optQuestion'><Link onClick={() => newUsedQuestion(1,6)} to={"/view-question/" + grade + "/1/60"} className="select border-orchid">60</Link></div>
+                        <div className="column-container">
+                            <div className='column'>
+                                <div className='select-heading-container'>
+                                    <span className="select background-orchid border-orchid">Gia Đình</span>
+                                </div>
+                                <Link onClick={() => newUsedQuestion(1,1)} to={"/view-question/" + grade + "/1/10"} className="select border-orchid">10</Link>
+                                <Link onClick={() => newUsedQuestion(1,2)} to={"/view-question/" + grade + "/1/20"} className="select border-orchid">20</Link>
+                                <Link onClick={() => newUsedQuestion(1,3)} to={"/view-question/" + grade + "/1/30"} className="select border-orchid">30</Link>
+                                <Link onClick={() => newUsedQuestion(1,4)} to={"/view-question/" + grade + "/1/40"} className="select border-orchid">40</Link>
+                                <Link onClick={() => newUsedQuestion(1,5)} to={"/view-question/" + grade + "/1/50"} className="select border-orchid">50</Link>
+                                <Link ref={optQuestion1} onClick={() => newUsedQuestion(1,6)} to={"/view-question/" + grade + "/1/60"} className="select border-orchid">60</Link>
+                            </div>
                         </div>
-                        <div className='column'>
-                            <span className="select background-lightblue border-lightblue">Ngữ Vựng Chính Tả</span>
-                            <Link onClick={() => newUsedQuestion(2,1)} to={"/view-question/" + grade + "/2/10"} className="select border-lightblue">10</Link>
-                            <Link onClick={() => newUsedQuestion(2,2)} to={"/view-question/" + grade + "/2/20"} className="select border-lightblue">20</Link>
-                            <Link onClick={() => newUsedQuestion(2,3)} to={"/view-question/" + grade + "/2/30"} className="select border-lightblue">30</Link>
-                            <Link onClick={() => newUsedQuestion(2,4)} to={"/view-question/" + grade + "/2/40"} className="select border-lightblue">40</Link>
-                            <Link onClick={() => newUsedQuestion(2,5)} to={"/view-question/" + grade + "/2/50"} className="select border-lightblue">50</Link>
-                            <div ref={optQuestion2} className='optQuestion'><Link onClick={() => newUsedQuestion(2,6)} to={"/view-question/" + grade + "/2/60"} className="select border-lightblue">60</Link></div>
+                        <div className="column-container">
+                            <div className='column'>
+                                <div className='select-heading-container'>
+                                    <span className="select background-lightblue border-lightblue">Ngữ Vựng Chính Tả</span>
+                                </div>
+                                <Link onClick={() => newUsedQuestion(2,1)} to={"/view-question/" + grade + "/2/10"} className="select border-lightblue">10</Link>
+                                <Link onClick={() => newUsedQuestion(2,2)} to={"/view-question/" + grade + "/2/20"} className="select border-lightblue">20</Link>
+                                <Link onClick={() => newUsedQuestion(2,3)} to={"/view-question/" + grade + "/2/30"} className="select border-lightblue">30</Link>
+                                <Link onClick={() => newUsedQuestion(2,4)} to={"/view-question/" + grade + "/2/40"} className="select border-lightblue">40</Link>
+                                <Link onClick={() => newUsedQuestion(2,5)} to={"/view-question/" + grade + "/2/50"} className="select border-lightblue">50</Link>
+                                <Link ref={optQuestion2} onClick={() => newUsedQuestion(2,6)} to={"/view-question/" + grade + "/2/60"} className="select border-lightblue">60</Link>
+                            </div>
                         </div>
-                        <div className='column'>
-                            <span className="select background-yellow border-yellow">Món Ăn</span>
-                            <Link onClick={() => newUsedQuestion(3,1)} to={"/view-question/" + grade + "/3/10"} className="select border-yellow">10</Link>
-                            <Link onClick={() => newUsedQuestion(3,2)} to={"/view-question/" + grade + "/3/20"} className="select border-yellow">20</Link>
-                            <Link onClick={() => newUsedQuestion(3,3)} to={"/view-question/" + grade + "/3/30"} className="select border-yellow">30</Link>
-                            <Link onClick={() => newUsedQuestion(3,4)} to={"/view-question/" + grade + "/3/40"} className="select border-yellow">40</Link>
-                            <Link onClick={() => newUsedQuestion(3,5)} to={"/view-question/" + grade + "/3/50"} className="select border-yellow">50</Link>
-                            <div ref={optQuestion3} className='optQuestion'><Link onClick={() => newUsedQuestion(3,6)} to={"/view-question/" + grade + "/3/60"} className="select border-yellow">60</Link></div>
+                        <div className="column-container">
+                            <div className='column'>
+                                <div className='select-heading-container'>
+                                    <span className="select background-yellow border-yellow">Món Ăn</span>
+                                </div>
+                                <Link onClick={() => newUsedQuestion(3,1)} to={"/view-question/" + grade + "/3/10"} className="select border-yellow">10</Link>
+                                <Link onClick={() => newUsedQuestion(3,2)} to={"/view-question/" + grade + "/3/20"} className="select border-yellow">20</Link>
+                                <Link onClick={() => newUsedQuestion(3,3)} to={"/view-question/" + grade + "/3/30"} className="select border-yellow">30</Link>
+                                <Link onClick={() => newUsedQuestion(3,4)} to={"/view-question/" + grade + "/3/40"} className="select border-yellow">40</Link>
+                                <Link onClick={() => newUsedQuestion(3,5)} to={"/view-question/" + grade + "/3/50"} className="select border-yellow">50</Link>
+                                <Link ref={optQuestion3} onClick={() => newUsedQuestion(3,6)} to={"/view-question/" + grade + "/3/60"} className="select border-yellow">60</Link>
+                            </div>
                         </div>
-                        <div className='column'>
-                            <span className="select background-red border-red">Phong Tục Tập Quán</span>
-                            <Link onClick={() => newUsedQuestion(4,1)} to={"/view-question/" + grade + "/4/10"} className="select border-red">10</Link>
-                            <Link onClick={() => newUsedQuestion(4,2)} to={"/view-question/" + grade + "/4/20"} className="select border-red">20</Link>
-                            <Link onClick={() => newUsedQuestion(4,3)} to={"/view-question/" + grade + "/4/30"} className="select border-red">30</Link>
-                            <Link onClick={() => newUsedQuestion(4,4)} to={"/view-question/" + grade + "/4/40"} className="select border-red">40</Link>
-                            <Link onClick={() => newUsedQuestion(4,5)} to={"/view-question/" + grade + "/4/50"} className="select border-red">50</Link>
-                            <div ref={optQuestion4} className='optQuestion'><Link onClick={() => newUsedQuestion(4,6)} to={"/view-question/" + grade + "/4/60"} className="select border-red">60</Link></div>
+                        <div className="column-container">
+                            <div className='column'>
+                                <div className='select-heading-container'>
+                                    <span className="select background-red border-red">Phong Tục Tập Quán</span>
+                                </div>
+                                <Link onClick={() => newUsedQuestion(4,1)} to={"/view-question/" + grade + "/4/10"} className="select border-red">10</Link>
+                                <Link onClick={() => newUsedQuestion(4,2)} to={"/view-question/" + grade + "/4/20"} className="select border-red">20</Link>
+                                <Link onClick={() => newUsedQuestion(4,3)} to={"/view-question/" + grade + "/4/30"} className="select border-red">30</Link>
+                                <Link onClick={() => newUsedQuestion(4,4)} to={"/view-question/" + grade + "/4/40"} className="select border-red">40</Link>
+                                <Link onClick={() => newUsedQuestion(4,5)} to={"/view-question/" + grade + "/4/50"} className="select border-red">50</Link>
+                                <Link ref={optQuestion4} onClick={() => newUsedQuestion(4,6)} to={"/view-question/" + grade + "/4/60"} className="select border-red">60</Link>
+                            </div>
                         </div>
-                        <div ref={optCategory} className='column'>
-                            <OptCategory/>
+                        <div ref={optCategory} className="column-container">
+                            <div className='column'>
+                                <div className='select-heading-container'>
+                                    <span className="select background-green border-green">Lịch Sử Địa Lý</span>
+                                </div>
+                                <Link onClick={() => newUsedQuestion(5,1)} to={"/view-question/" + grade + "/5/10"} className="select border-green">10</Link>
+                                <Link onClick={() => newUsedQuestion(5,2)} to={"/view-question/" + grade + "/5/20"} className="select border-green">20</Link>
+                                <Link onClick={() => newUsedQuestion(5,3)} to={"/view-question/" + grade + "/5/30"} className="select border-green">30</Link>
+                                <Link onClick={() => newUsedQuestion(5,4)} to={"/view-question/" + grade + "/5/40"} className="select border-green">40</Link>
+                                <Link onClick={() => newUsedQuestion(5,5)} to={"/view-question/" + grade + "/5/50"} className="select border-green">50</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

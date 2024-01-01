@@ -57,31 +57,41 @@
 
 .selection .selection-container-category-points .category {
     display: flex;
-    margin: auto;
     padding: 25px;
     margin-bottom: 50px;
+    width: 80%;
+    margin-left: 5.59%;
+}
+
+.selection .selection-container-category-points .category .column-container{
+    width: 13%;
+    margin: auto;
+    text-align: center;
+}
+
+.selection .selection-container-category-points .category .column-container .column {
     width: 100%;
-}
-
-.selection .selection-container-category-points .category .column {
-    width: 10%;
     border-width: 3px;
-    margin-left: 4vw;
-    margin-right: 4vw;
+    text-align: center;
 }
 
-.selection .selection-container-category-points .category .column .select:first-child {
+.selection .selection-container-category-points .category .column-container .column .select-heading-container {
+    
+}
+
+.selection .selection-container-category-points .category .column-container .column .select-heading-container .select {
     cursor: default;
-    height: 10%;
+    height: 1%;
+    display: block;
 }
 
-.selection .selection-container-category-points .category .column .select:first-child:hover {
+.selection .selection-container-category-points .category .column-container .column .select-heading-container .select:hover {
     border-width: 3px;
 }
 
-.selection .selection-container-category-points .category .column .select {
+.selection .selection-container-category-points .category .column-container .column .select {
     width: 100%;
-    font-size: 20px;
+    font-size: 22px;
     border-width: 3px;
     background-color: #f8f4f4;
     text-decoration: none;
