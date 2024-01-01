@@ -83,7 +83,7 @@ body {
     border: 2px midnightblue inset;
 }
 
-.select.active {
+.select:active {
     border: 3px midnightblue inset;
 }
 
