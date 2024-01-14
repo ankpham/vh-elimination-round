@@ -5,10 +5,6 @@ import {Link, useParams} from 'react-router-dom';
 const SelectCategoryAndPoints = () => {
     const heading = useRef();
     const categoryElement = useRef();
-    const optQuestion1 = useRef();
-    const optQuestion2 = useRef();
-    const optQuestion3 = useRef();
-    const optQuestion4 = useRef();
     const optCategory = useRef(null);
 
     const {grade} = useParams();
@@ -39,12 +35,6 @@ const SelectCategoryAndPoints = () => {
         //removes categories/points depending on grades
         if (grade === "mg" || grade === "vl" || grade === "1") {
             optCategory.current.remove();
-        }
-        else {
-            optQuestion1.current.remove();
-            optQuestion2.current.remove();
-            optQuestion3.current.remove();
-            optQuestion4.current.remove();
         }
 
         //remove used questions
@@ -123,7 +113,6 @@ const SelectCategoryAndPoints = () => {
                                 <Link onClick={() => newUsedQuestion(1,3)} to={"/view-question/" + grade + "/1/30"} className="select border-orchid">30</Link>
                                 <Link onClick={() => newUsedQuestion(1,4)} to={"/view-question/" + grade + "/1/40"} className="select border-orchid">40</Link>
                                 <Link onClick={() => newUsedQuestion(1,5)} to={"/view-question/" + grade + "/1/50"} className="select border-orchid">50</Link>
-                                <Link ref={optQuestion1} onClick={() => newUsedQuestion(1,6)} to={"/view-question/" + grade + "/1/60"} className="select border-orchid">60</Link>
                             </div>
                         </div>
                         <div className="column-container">
@@ -136,7 +125,6 @@ const SelectCategoryAndPoints = () => {
                                 <Link onClick={() => newUsedQuestion(2,3)} to={"/view-question/" + grade + "/2/30"} className="select border-lightblue">30</Link>
                                 <Link onClick={() => newUsedQuestion(2,4)} to={"/view-question/" + grade + "/2/40"} className="select border-lightblue">40</Link>
                                 <Link onClick={() => newUsedQuestion(2,5)} to={"/view-question/" + grade + "/2/50"} className="select border-lightblue">50</Link>
-                                <Link ref={optQuestion2} onClick={() => newUsedQuestion(2,6)} to={"/view-question/" + grade + "/2/60"} className="select border-lightblue">60</Link>
                             </div>
                         </div>
                         <div className="column-container">
@@ -149,7 +137,6 @@ const SelectCategoryAndPoints = () => {
                                 <Link onClick={() => newUsedQuestion(3,3)} to={"/view-question/" + grade + "/3/30"} className="select border-yellow">30</Link>
                                 <Link onClick={() => newUsedQuestion(3,4)} to={"/view-question/" + grade + "/3/40"} className="select border-yellow">40</Link>
                                 <Link onClick={() => newUsedQuestion(3,5)} to={"/view-question/" + grade + "/3/50"} className="select border-yellow">50</Link>
-                                <Link ref={optQuestion3} onClick={() => newUsedQuestion(3,6)} to={"/view-question/" + grade + "/3/60"} className="select border-yellow">60</Link>
                             </div>
                         </div>
                         <div className="column-container">
@@ -162,7 +149,6 @@ const SelectCategoryAndPoints = () => {
                                 <Link onClick={() => newUsedQuestion(4,3)} to={"/view-question/" + grade + "/4/30"} className="select border-red">30</Link>
                                 <Link onClick={() => newUsedQuestion(4,4)} to={"/view-question/" + grade + "/4/40"} className="select border-red">40</Link>
                                 <Link onClick={() => newUsedQuestion(4,5)} to={"/view-question/" + grade + "/4/50"} className="select border-red">50</Link>
-                                <Link ref={optQuestion4} onClick={() => newUsedQuestion(4,6)} to={"/view-question/" + grade + "/4/60"} className="select border-red">60</Link>
                             </div>
                         </div>
                         <div ref={optCategory} className="column-container">

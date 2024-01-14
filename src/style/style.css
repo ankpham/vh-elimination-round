@@ -11,7 +11,7 @@
 
 body {
     background-color: rgba(0,0,0);
-    overflow: hidden; /*remove overflow hidden to add scrollbar and access full screen button*/
+    overflow: none; /*remove overflow hidden to add scrollbar and access full screen button*/
     color: midnightblue;
     font-family: Cambria;
     font-weight: 600;
