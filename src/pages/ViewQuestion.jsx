@@ -17,9 +17,15 @@ const ViewQuestion = () => {
     const correctContainer = useRef(null);
     const wrongContainer1 = useRef(null);
     const wrongContainer2 = useRef(null);
+    const [multipleChoiceDisplayStyle, setMultipleChoiceDisplayStyle]= useState(null);
+    const [multipleChoiceAnswersDisplayStyle, setMultipleChoiceAnswersDisplayStyle] = useState(null);
+    const [openEndedDisplayStyle, setOpenEndedDisplayStyle] = useState(null);
+    const [openEndedAnswerDisplayStyle, setOpenEndedAnswerDisplayStyle] = useState("none")
+    const [openEndedAnswerButtonDisplayStyle, setOpenEndedAnswerButtonDisplayStyle] = useState("none");
     const [letterIcon, setLetterIcon] = useState('');
 
     const [question, setQuestion] = useState('no question');
+    const [oerAnswer, setOerAnswer] = useState('no answer');
     const [choice1, setChoice1] = useState('no choice');
     const [choice2, setChoice2] = useState('no choice');
     const [choice3, setChoice3] = useState('no choice');
@@ -75,17 +81,30 @@ const ViewQuestion = () => {
         axios.get('http://vhbackend.hvmatl.org:8080/get/question/round/1/category/' + category + 
         '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
-            console.log(response.data.id)
+            if (response.data.type + "" === "mc") {
+                setOpenEndedDisplayStyle("none")
+                setOpenEndedAnswerButtonDisplayStyle("none")
+                setMultipleChoiceDisplayStyle("block")
+                setMultipleChoiceAnswersDisplayStyle("block")
+            }
+            else {
+                setOpenEndedDisplayStyle("block")
+                setOpenEndedAnswerButtonDisplayStyle("block")
+                setMultipleChoiceDisplayStyle("none")
+                setMultipleChoiceAnswersDisplayStyle("none")
+            }
+
             setQuestion(response.data.question);
             let arr = [response.data.correctChoice,response.data.otherChoices[0],response.data.otherChoices[1]]
 
+            setOerAnswer(arr[0]);
             setChoice1(arr[0]);
             setChoice2(arr[1]);
             setChoice3(arr[2]);
             setquestionElementStyle({})
         })
     }, [category, points, grade]);
-
+    
     const correctChoice = (
         <div ref={correctContainer} onClickCapture={() => PlayAudio('ding')} onClick={() => {
             setConfetti(true)
@@ -111,33 +130,61 @@ const ViewQuestion = () => {
     const displayB = arr[1];
     const displayC = arr[2];
 
+    const multipleChoice = (
+            <>
+            <div style={{display: multipleChoiceDisplayStyle}} className='question-row'>
+                <div hidden>
+                    <h5>Lớp {grade}</h5>
+                    <h5>Category {category}</h5>
+                    <h5>{points} Points</h5>
+                </div>
+                <div ref={timerElement} className='timer'>
+                    <Timer/>
+                </div>
+                <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
+            </div>
+            <div style={{display: multipleChoiceAnswersDisplayStyle}} className="choices">
+                <div className='choice-container'>
+                    <TbLetterA className={'letter-icon ' + letterIcon}/>{displayA}
+                </div>
+                <div className='choice-container'>
+                    <TbLetterB className={'letter-icon ' + letterIcon}/>{displayB}
+                </div>
+                <div className='choice-container'>
+                    <TbLetterC className={'letter-icon ' + letterIcon}/>{displayC}
+                </div>
+            </div>
+            </>
+    )
+
+    const openEnded = (
+        <>
+        <div style={{display: openEndedDisplayStyle}} className='question-row'>
+            <div hidden>
+                <h5>Lớp {grade}</h5>
+                <h5>Category {category}</h5>
+                <h5>{points} Points</h5>
+            </div>
+            <div ref={timerElement} className='timer'>
+                <Timer/>
+            </div>
+            <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
+            <h1 onClick={() => {
+                setOpenEndedAnswerDisplayStyle("block")
+                setOpenEndedAnswerButtonDisplayStyle("none")
+            }} style={{display: openEndedAnswerButtonDisplayStyle,color: 'green', cursor: 'pointer', border: '1px solid green', padding: '5px', marginTop: "15vh"}} className='question-heading'>Câu Trả Lời Đúng</h1>
+            <h1 style={{display: openEndedAnswerDisplayStyle}} className='question-heading'>{oerAnswer}</h1>
+        </div>
+        </>
+    )
+    
     return (
         <>
         <div className='view-question'> 
             <div id="container" className='container'>
                 <div style={questionElementStyle} className='question'>
-                    <div className='question-row'>
-                        <div hidden>
-                            <h5>Lớp {grade}</h5>
-                            <h5>Category {category}</h5>
-                            <h5>{points} Points</h5>
-                        </div>
-                        <div ref={timerElement} className='timer'>
-                            <Timer/>
-                        </div>
-                        <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
-                    </div>
-                    <div className="choices">
-                        <div className='choice-container'>
-                            <TbLetterA className={'letter-icon ' + letterIcon}/>{displayA}
-                        </div>
-                        <div className='choice-container'>
-                            <TbLetterB className={'letter-icon ' + letterIcon}/>{displayB}
-                        </div>
-                        <div className='choice-container'>
-                            <TbLetterC className={'letter-icon ' + letterIcon}/>{displayC}
-                        </div>
-                    </div>
+                    {multipleChoice}
+                    {openEnded}
                 </div>
                 <Link className="link back-to-selection" to={"/select-category-and-points/" + grade}>Trở Về Trang Đầu</Link> 
             </div>
