@@ -36,6 +36,7 @@
     width: 75%;
     line-height: 7.5vh;
     font-weight: bold;
+    padding-top: 1%;
 }
 
 .question .question-row {
@@ -81,8 +82,9 @@
 .question .choices .choice-container div p.question-text {
     display: inline-block;
     width: 70%;
-    font-size: 35px;
+    font-size: 30px;
     user-select: none;
+    margin-top: 1vh;
     cursor: pointer;
     border: none;
     box-shadow: none;
@@ -125,10 +127,10 @@
 }
 
 .inactive-check {
-    position: absolute;    
-    padding: 0;
+    position: absolute;  
     margin: 0;
-    right: 23%;
+    margin-top: 3vh;
+    right: 22%;
     color: green;
     height: 7%;
     width: 7%;
@@ -138,7 +140,8 @@
 .inactive-x {
     position: absolute;  
     margin: 0;
-    right: 23%;
+    margin-top: 3vh;
+    right: 22%;
     color: red;
     height: 7%;
     width: 7%;

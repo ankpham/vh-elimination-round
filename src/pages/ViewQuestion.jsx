@@ -65,14 +65,14 @@ const ViewQuestion = () => {
 
     const displayIcon = (questionLocation) => {
         if (questionLocation === 'correct') {
-            correctElement.current.childNodes[1].classList.add('active-x-check');
+            correctContainer.current.childNodes[1].classList.add('active-x-check');
             timerElement.current.remove();
         }
         else if (questionLocation === 'wrong1') {
-            wrongElement1.current.childNodes[1].classList.add('active-x-check');
+            wrongContainer1.current.childNodes[1].classList.add('active-x-check');
         }
         else if (questionLocation === 'wrong2') {
-            wrongElement2.current.childNodes[1].classList.add('active-x-check');
+            wrongContainer2.current.childNodes[1].classList.add('active-x-check');
         }
     }
 
@@ -141,19 +141,19 @@ const ViewQuestion = () => {
         <div ref={correctContainer} onClickCapture={() => PlayAudio('ding')} onClick={() => {
             setConfetti(true)
             displayIcon('correct')
-        }} className='border-yellow'><p ref={correctElement} className="question-text">{choice1}<BsCheckLg className="inactive-check"/></p></div>
+        }} className='border-yellow'><p ref={correctElement} className="question-text">{choice1}</p><BsCheckLg className="inactive-check"/></div>
     )
 
     const otherChoice1 = (
         <div ref={wrongContainer1} onClickCapture={() => PlayAudio("buzzer")} onClick={() => {
             displayIcon('wrong1')
-        }} className='border-yellow'><p ref={wrongElement1} className="question-text">{choice2}<BsXLg className='inactive-x'/></p></div>
+        }} className='border-yellow'><p ref={wrongElement1} className="question-text">{choice2}</p><BsXLg className='inactive-x'/></div>
     )
 
     const otherChoice2 = (
         <div ref={wrongContainer2} onClickCapture={() => PlayAudio('buzzer')} onClick={() => {
             displayIcon('wrong2')
-        }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
+        }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}</p><BsXLg className='inactive-x'/></div>
     )
 
     let arr = RandomizeChoices(correctChoice,otherChoice1,otherChoice2);
