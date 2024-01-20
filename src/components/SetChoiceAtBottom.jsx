@@ -20,7 +20,6 @@ const SetChoiceAtBottom = (arrOfChoices, choiceToBeAtBottom) => {
 
     for (let i = 0;i < arrOfChoices.length;i++) {
         if (arrOfChoices[i] === choiceToBeAtBottom) {
-            console.log("asd")
             newArr[2] = arrOfChoices[i];
         }
     }
