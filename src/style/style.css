@@ -45,14 +45,11 @@ body {
 
 .link {
     color: midnightblue;
-    display: block;
-    text-align: center;
     width: 200px;
     text-decoration: none;
     border: midnightblue solid 2px;
     border-radius: 10px;
     padding: 10px;
-    margin: 5px;
     transition: border .1s;
 }
 
@@ -88,8 +85,10 @@ body {
 }
 
 .link.back-to-selection {
-    display: block;
-    float: left;
+    position: absolute;
+    left: 1vw;
+    bottom: 8vh;
+    padding: 2px;
     font-size: 23px;
 }
 
