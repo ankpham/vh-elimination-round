@@ -7,6 +7,7 @@ import {BsCheckLg, BsXLg} from 'react-icons/bs';
 import { useParams, Link } from "react-router-dom";
 import { PlayAudio } from '../components/PlayAudio';
 import { RandomizeChoices } from '../components/RandomizeChoices';
+import { SetChoiceAtBottom } from '../components/SetChoiceAtBottom';
 
 const ViewQuestion = () => {
     const timerElement = useRef(null);
@@ -123,9 +124,20 @@ const ViewQuestion = () => {
             displayIcon('wrong2')
         }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
     )
-    
-    let arr = RandomizeChoices(correctChoice,otherChoice1,otherChoice2);
 
+    let arr = RandomizeChoices(correctChoice,otherChoice1,otherChoice2);
+    
+    //For questions with this answer choice
+    if (choice1.trim() === "Cả hai câu đều đúng." || choice1.trim() === "Không có câu đúng") {
+        arr = SetChoiceAtBottom(arr, correctChoice);
+    }
+    else if (choice2.trim() === "Cả hai câu đều đúng." || choice2.trim() === "Không có câu đúng") {
+        arr = SetChoiceAtBottom(arr, otherChoice1);
+    }
+    else if (choice3.trim() === "Cả hai câu đều đúng." || choice3.trim() === "Không có câu đúng") {
+        arr = SetChoiceAtBottom(arr, otherChoice2);
+    }
+    
     const displayA = arr[0];
     const displayB = arr[1];
     const displayC = arr[2];
