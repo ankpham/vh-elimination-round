@@ -32,6 +32,12 @@
     width: 55%;
 }
 
+.oer-answer {
+    width: 75%;
+    line-height: 7.5vh;
+    font-weight: bold;
+}
+
 .question .question-row {
     height: 38%;
 }

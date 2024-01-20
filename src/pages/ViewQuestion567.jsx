@@ -78,6 +78,31 @@ const ViewQuestion567 = () => {
 
     const user = "089e-weni-098w";
     const pass = "0842-0983-ibjw-2q9w";
+    
+    //New line for oer snswers
+    const newLine = (str) => {
+        let newArr = str.split("*newline*");
+
+        let arrOfObjects = [];
+
+        for (let i = 0;i < newArr.length;i++) {
+            arrOfObjects.push({
+               data: newArr[i] 
+            })
+        }
+
+        let answer = (
+            <>
+            {arrOfObjects.map((item) => (
+                <div>
+                    {item.data}<br></br>
+                </div>
+            ))}
+            </>
+        )
+
+        return answer;
+    }
 
     useEffect(()=>{
         correctContainer.current.classList.add(selectionMapping.get(category))
@@ -93,6 +118,7 @@ const ViewQuestion567 = () => {
                 setOpenEndedAnswerButtonDisplayStyle("block")
                 setMultipleChoiceDisplayStyle("none")
                 setMultipleChoiceAnswersDisplayStyle("none")
+                setOerAnswer(response.data.correctChoice)
             }
             else {
                 setOpenEndedDisplayStyle("none")
@@ -104,7 +130,6 @@ const ViewQuestion567 = () => {
             setQuestion(response.data.question);
             let arr = [response.data.correctChoice,response.data.otherChoices[0],response.data.otherChoices[1]]
 
-            setOerAnswer(arr[0]);
             setChoice1(arr[0]);
             setChoice2(arr[1]);
             setChoice3(arr[2]);
@@ -191,11 +216,11 @@ const ViewQuestion567 = () => {
                 setOpenEndedAnswerDisplayStyle("block")
                 setOpenEndedAnswerButtonDisplayStyle("none")
             }} style={{display: openEndedAnswerButtonDisplayStyle,color: 'green', cursor: 'pointer', border: '1px solid green', padding: '5px', marginTop: "15vh"}} className='question-heading'>Câu Trả Lời Đúng</h1>
-            <h1 style={{display: openEndedAnswerDisplayStyle}} className='question-heading'>{oerAnswer}</h1>
+            <h1 style={{display: openEndedAnswerDisplayStyle}} className='question-heading oer-answer'>{newLine(oerAnswer)}</h1>
         </div>
         </>
     )
-    
+
     return (
         <>
         <div className='view-question'> 
