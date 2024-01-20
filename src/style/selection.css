@@ -112,7 +112,7 @@
 .selection .selection-container-category-points-567 .category {
     display: flex;
     flex-direction: row;
-    padding: 25px;
+    padding: .51vh;
     width: 88%;
     margin-left: 1.35%;
 }
@@ -127,12 +127,20 @@
     border-width: 3px;
 }
 
-.selection .selection-container-category-points-567 .category .column-container .column .select-heading-container {
-    height: 9vh;
-    padding-bottom: 3vh;
-    text-align: center;
+@media only screen and (max-width: 1400px) {
+    .selection .selection-container-category-points-567 .category .column-container .column .select-heading-container {
+        height: 12vh;
+        text-align: center;
+    }
 }
 
+@media only screen and (min-width: 1400px) {
+    .selection .selection-container-category-points-567 .category .column-container .column .select-heading-container {
+        height: 3vh;
+        padding-bottom: 5vh;
+        text-align: center;
+    }
+}
 .selection .selection-container-category-points-567 .category .column-container .column .select-heading-container span {
     text-align: center;
 }
