@@ -9,7 +9,7 @@ import { PlayAudio } from '../components/PlayAudio';
 import { RandomizeChoices } from '../components/RandomizeChoices';
 import { SetChoiceAtBottom } from '../components/SetChoiceAtBottom';
 
-const ViewQuestion = () => {
+const ViewQuestion567 = () => {
     const timerElement = useRef(null);
     const questionContainer = useRef(null);
     const questionElement = useRef(null);
@@ -37,15 +37,15 @@ const ViewQuestion = () => {
 
     let selectionMapping = useMemo(() => 
         new Map([
-            ["1", "border-orchid"], ["2", "border-lightblue"], ["3", "border-yellow"], 
-            ["4", "border-red"], ["5", "border-green"]
+            ["1-1", "border-red"], ["1-2", "border-red"], ["1-3", "border-red"], 
+            ["1-4", "border-red"], ["2-1", "border-yellow"], ["3-1", "border-green"]
         ])
     , [])
 
     let selectionMappingBackground = useMemo(() => 
         new Map([
-            ["1", "background-orchid"], ["2", "background-lightblue"], ["3", "background-yellow"], 
-            ["4", "background-red"], ["5", "background-green"]
+            ["1-1", "background-red"], ["1-2", "background-red"], ["1-3", "background-red"], 
+            ["1-4", "background-red"], ["2-1", "background-yellow"], ["3-1", "background-green"]
         ])
     , [])
 
@@ -116,19 +116,19 @@ const ViewQuestion = () => {
         <div ref={correctContainer} onClickCapture={() => PlayAudio('ding')} onClick={() => {
             setConfetti(true)
             displayIcon('correct')
-        }} className='border-yellow'><p ref={correctElement} className="question-text">{choice1}<BsCheckLg className="inactive-check"/></p></div>
+        }} className={selectionMapping.get(category)}><p ref={correctElement} className="question-text">{choice1}<BsCheckLg className="inactive-check"/></p></div>
     )
 
     const otherChoice1 = (
         <div ref={wrongContainer1} onClickCapture={() => PlayAudio("buzzer")} onClick={() => {
             displayIcon('wrong1')
-        }} className='border-yellow'><p ref={wrongElement1} className="question-text">{choice2}<BsXLg className='inactive-x'/></p></div>
+        }} className={selectionMapping.get(category)}><p ref={wrongElement1} className="question-text">{choice2}<BsXLg className='inactive-x'/></p></div>
     )
 
     const otherChoice2 = (
         <div ref={wrongContainer2} onClickCapture={() => PlayAudio('buzzer')} onClick={() => {
             displayIcon('wrong2')
-        }} className='border-yellow'><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
+        }} className={selectionMapping.get(category)}><p ref={wrongElement2} className="question-text">{choice3}<BsXLg className='inactive-x'/></p></div>
     )
 
     let arr = RandomizeChoices(correctChoice,otherChoice1,otherChoice2);
@@ -204,11 +204,11 @@ const ViewQuestion = () => {
                     {multipleChoice}
                     {openEnded}
                 </div>
-                <Link className="link back-to-selection" to={"/select-category-and-points/" + grade}>Trở Về Trang Đầu</Link> 
+                <Link className="link back-to-selection" to={"/select-category-and-points-567/" + grade}>Trở Về Trang Đầu</Link> 
             </div>
         </div>
         </>
     )
 }
 
-export default ViewQuestion;
+export default ViewQuestion567;

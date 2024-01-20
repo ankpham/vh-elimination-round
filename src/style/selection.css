@@ -97,3 +97,51 @@
     cursor: default !important;
     pointer-events: none;
 }
+
+
+
+
+
+.selection .selection-container-category-points-567 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+}
+
+.selection .selection-container-category-points-567 .category {
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    width: 88%;
+    margin-left: 1.35%;
+}
+
+.selection .selection-container-category-points-567 .category .column-container {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selection .selection-container-category-points-567 .category .column-container .column {
+    border-width: 3px;
+}
+
+.selection .selection-container-category-points-567 .category .column-container .column .select-heading-container {
+    height: 9vh;
+    text-align: center;
+}
+
+.selection .selection-container-category-points-567 .category .column-container .column .select-heading-container span {
+    height: 122%;
+    text-align: center;
+}
+
+.selection .selection-container-category-points-567 .category .column-container .column .select {
+    width: 100%;
+    font-size: 23px;
+    border-width: 3px;
+    background-color: #f3f3f3;
+    text-decoration: none;
+    font-weight: 800;
+}

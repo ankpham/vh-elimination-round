@@ -17,9 +17,9 @@ const SelectGrade = () => {
                         <Link to={"/select-category-and-points/2"} className="select background-pink">Lớp 2</Link>
                         <Link to={"/select-category-and-points/3"} className="select background-orchid">Lớp 3</Link>
                         <Link to={"/select-category-and-points/4"} className="select background-purple">Lớp 4</Link>
-                        <Link to={"/select-category-and-points/5"} className="select background-lightblue">Lớp 5</Link>
-                        <Link to={"/select-category-and-points/6"} className="select background-cyan">Lớp 6</Link>
-                        <Link to={"/select-category-and-points/7"} className="select background-green">Lớp 7</Link>
+                        <Link to={"/select-category-and-points-567/5"} className="select background-lightblue">Lớp 5</Link>
+                        <Link to={"/select-category-and-points-567/6"} className="select background-cyan">Lớp 6</Link>
+                        <Link to={"/select-category-and-points-567/7"} className="select background-green">Lớp 7</Link>
                     </div>
                 </div>
             </div>
