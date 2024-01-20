@@ -25,7 +25,8 @@
     font-size: 40px;
     font-weight: 400;
     text-align: center;
-    padding-top: 7%;
+    padding-top: 6vh;
+    padding-bottom: 2vh;
     margin-left: auto;
     margin-right: auto;
     color: midnightblue;
@@ -37,6 +38,7 @@
     line-height: 7.5vh;
     font-weight: bold;
     padding-top: 1%;
+    font-size: 35px;
 }
 
 .question .question-row {
