@@ -11,6 +11,7 @@ import { SetChoiceAtBottom } from '../components/SetChoiceAtBottom';
 
 const ViewQuestion = () => {
     const timerElement = useRef(null);
+    const questionContainer = useRef(null);
     const questionElement = useRef(null);
     const correctElement = useRef(null);
     const wrongElement1 = useRef(null);
@@ -50,10 +51,10 @@ const ViewQuestion = () => {
 
     //Confetti Effect
     const setConfetti = () => {
-        party.confetti(questionElement.current, {
+        party.confetti(questionContainer.current, {
             count: party.variation.range(100, 200),
             size: party.variation.range(2, 2.5),
-            spread: party.variation.range(80, 160)
+            spread: party.variation.range(80, 130)
         });
     }
 
@@ -194,7 +195,7 @@ const ViewQuestion = () => {
         <>
         <div className='view-question'> 
             <div id="container" className='container'>
-                <div style={questionElementStyle} className='question'>
+                <div ref={questionContainer} style={questionElementStyle} className='question'>
                     {multipleChoice}
                     {openEnded}
                 </div>
