@@ -19,11 +19,11 @@ const ViewQuestion = () => {
     const correctContainer = useRef(null);
     const wrongContainer1 = useRef(null);
     const wrongContainer2 = useRef(null);
-    const [multipleChoiceDisplayStyle, setMultipleChoiceDisplayStyle]= useState(null);
-    const [multipleChoiceAnswersDisplayStyle, setMultipleChoiceAnswersDisplayStyle] = useState(null);
+    const [multipleChoiceDisplayStyle, setMultipleChoiceDisplayStyle]= useState("none");
+    const [multipleChoiceAnswersDisplayStyle, setMultipleChoiceAnswersDisplayStyle] = useState("none");
     const [openEndedDisplayStyle, setOpenEndedDisplayStyle] = useState(null);
-    const [openEndedAnswerDisplayStyle, setOpenEndedAnswerDisplayStyle] = useState("none")
-    const [openEndedAnswerButtonDisplayStyle, setOpenEndedAnswerButtonDisplayStyle] = useState("none");
+    const [openEndedAnswerDisplayStyle, setOpenEndedAnswerDisplayStyle] = useState(null)
+    const [openEndedAnswerButtonDisplayStyle, setOpenEndedAnswerButtonDisplayStyle] = useState(null);
     const [letterIcon, setLetterIcon] = useState('');
 
     const [question, setQuestion] = useState('no question');
@@ -52,7 +52,12 @@ const ViewQuestion = () => {
     //Confetti Effect
     const setConfetti = () => {
         party.confetti(questionContainer.current, {
-            count: party.variation.range(100, 200),
+            count: party.variation.range(50, 100),
+            size: party.variation.range(2, 2.5),
+            spread: party.variation.range(80, 130)
+        });
+        party.sparkles(questionContainer.current, {
+            count: party.variation.range(50, 100),
             size: party.variation.range(2, 2.5),
             spread: party.variation.range(80, 130)
         });
@@ -83,17 +88,17 @@ const ViewQuestion = () => {
         axios.get('http://vhbackend.hvmatl.org:8080/get/question/round/1/category/' + category + 
         '/grade/' + grade + '/points/' + points, {auth: { username: user, password: pass}}
         ).then((response) => {
-            if (response.data.type + "" === "mc") {
-                setOpenEndedDisplayStyle("none")
-                setOpenEndedAnswerButtonDisplayStyle("none")
-                setMultipleChoiceDisplayStyle("block")
-                setMultipleChoiceAnswersDisplayStyle("block")
-            }
-            else {
+            if (response.data.type + "" === "oer") {
                 setOpenEndedDisplayStyle("block")
                 setOpenEndedAnswerButtonDisplayStyle("block")
                 setMultipleChoiceDisplayStyle("none")
                 setMultipleChoiceAnswersDisplayStyle("none")
+            }
+            else {
+                setOpenEndedDisplayStyle("none")
+                setOpenEndedAnswerButtonDisplayStyle("none")
+                setMultipleChoiceDisplayStyle("block")
+                setMultipleChoiceAnswersDisplayStyle("block")
             }
 
             setQuestion(response.data.question);
