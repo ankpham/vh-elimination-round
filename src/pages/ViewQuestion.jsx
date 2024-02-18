@@ -10,7 +10,8 @@ import { RandomizeChoices } from '../components/RandomizeChoices';
 import { SetChoiceAtBottom } from '../components/SetChoiceAtBottom';
 
 const ViewQuestion = () => {
-    const timerElement = useRef(null);
+    const timerElementMC = useRef(null);
+    const timerElementOER = useRef(null);
     const questionContainer = useRef(null);
     const questionElement = useRef(null);
     const correctElement = useRef(null);
@@ -66,7 +67,8 @@ const ViewQuestion = () => {
     const displayIcon = (questionLocation) => {
         if (questionLocation === 'correct') {
             correctContainer.current.childNodes[1].classList.add('active-x-check');
-            timerElement.current.remove();
+            timerElementMC.current.remove();
+            timerElementOER.current.remove();
         }
         else if (questionLocation === 'wrong1') {
             wrongContainer1.current.childNodes[1].classList.add('active-x-check');
@@ -181,7 +183,7 @@ const ViewQuestion = () => {
                     <h5>Category {category}</h5>
                     <h5>{points} Points</h5>
                 </div>
-                <div ref={timerElement} className='timer'>
+                <div ref={timerElementMC} className='timer'>
                     <Timer/>
                 </div>
                 <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
@@ -208,7 +210,7 @@ const ViewQuestion = () => {
                 <h5>Category {category}</h5>
                 <h5>{points} Points</h5>
             </div>
-            <div ref={timerElement} className='timer'>
+            <div ref={timerElementOER} className='timer'>
                 <Timer/>
             </div>
             <h1 ref={questionElement} className='question-heading'>{question} <b style={{color: 'yellow'}} className='question-heading'>{'(' + points + ' Điểm)'}</b></h1>
