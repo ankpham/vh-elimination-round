@@ -217,6 +217,8 @@ const ViewQuestion567 = () => {
             <h1 onClick={() => {
                 setOpenEndedAnswerDisplayStyle("block")
                 setOpenEndedAnswerButtonDisplayStyle("none")
+                timerElementMC.current.remove();
+                timerElementOER.current.remove();
             }} style={{display: openEndedAnswerButtonDisplayStyle,color: 'green', cursor: 'pointer', border: '1px solid green', padding: '5px', marginTop: "15vh"}} className='question-heading'>Câu Trả Lời Đúng</h1>
             <h1 style={{display: openEndedAnswerDisplayStyle}} className='question-heading oer-answer'>{newLine(oerAnswer)}</h1>
         </div>
